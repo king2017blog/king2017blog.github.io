@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,软件测试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="King's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="一、Linux概述Linux是一款全球性的免费的开源的操作系统平台，其特点是实现了多任务多用户处理，主要是依赖 内核kernel shell，且占用资源少 （最小配置只要4Mb内存就能运行）。">
+<meta name="keywords" content="Linux,软件测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原]Linux学习（一）--基本概念">
+<meta property="og:url" content="http://yoursite.com/2017/09/25/原-Linux学习（一）-基本概念/index.html">
+<meta property="og:site_name" content="King&#39;s Blog">
+<meta property="og:description" content="一、Linux概述Linux是一款全球性的免费的开源的操作系统平台，其特点是实现了多任务多用户处理，主要是依赖 内核kernel shell，且占用资源少 （最小配置只要4Mb内存就能运行）。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-19T11:54:25.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[原]Linux学习（一）--基本概念">
+<meta name="twitter:description" content="一、Linux概述Linux是一款全球性的免费的开源的操作系统平台，其特点是实现了多任务多用户处理，主要是依赖 内核kernel shell，且占用资源少 （最小配置只要4Mb内存就能运行）。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/25/原-Linux学习（一）-基本概念/"/>
+
+
+
+
+
+  <title>[原]Linux学习（一）--基本概念 | King's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">King's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/source/404" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-404.html"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/原-Linux学习（一）-基本概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yujian Zhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="King's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[原]Linux学习（一）--基本概念</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T00:59:34+08:00">
+                2017-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+      
+      
+
+      
+        <h2 id="一、Linux概述"><a href="#一、Linux概述" class="headerlink" title="一、Linux概述"></a>一、Linux概述</h2><pre><code>Linux是一款全球性的免费的开源的操作系统平台，其特点是实现了多任务多用户处理，主要是依赖
+内核kernel shell，且占用资源少
+（最小配置只要4Mb内存就能运行）。
+</code></pre><a id="more"></a>
+<h3 id="百度百科概述"><a href="#百度百科概述" class="headerlink" title="百度百科概述"></a>百度百科概述</h3><pre><code>Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任
+务、支持多线程和多CPU的操作系统。
+它能运行主要的UNIX工具软件、应用程序和网络协议。它支持32位和64位硬件。
+Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。
+Linux操作系统诞生于1991 年10 月5 日（这是第一次正式向外公布时间）。Linux存在着许多不
+同的Linux版本，但它们都使用了Linux内核。
+Linux可安装在各种计算机硬件设备中，比如手机、平板电脑、路由器、视频游戏控制台、台式计算
+机、大型机和超级计算机。
+   严格来讲，Linux这个词本身只表示Linux内核，但实际上人们已经习惯了用Linux来形容整个
+基于Linux内核，
+并且使用GNU工程各种工具和数据库的操作系统。
+</code></pre><h4 id="1-1由来"><a href="#1-1由来" class="headerlink" title="1.1由来"></a>1.1由来</h4><pre><code>类UNIX的，与UNIX都是服务器系统。
+</code></pre><h4 id="1-2与UNIX的区别"><a href="#1-2与UNIX的区别" class="headerlink" title="1.2与UNIX的区别"></a>1.2与UNIX的区别</h4><pre><code>Linux是免费开源的，UNIX是商业应用性软件操作系统，UNIX是与硬件进行捆绑销售的，UNIX是不
+开源的（部分开源，但是核心代码是不开源的）
+</code></pre><h4 id="1-3-版本"><a href="#1-3-版本" class="headerlink" title="1.3.版本"></a>1.3.版本</h4><pre><code>主要分为两大类：商业版、社区版
+1)red hat：红帽（全球唯一一家认证Linux能力的公司，占据了Linux市场的绝大部分）
+2)Fedora：免费开源社区版本
+3)centos：community enterprise （稳定性要优于fedora）
+4)redhat enterprise：
+5)debian：容错性极强的操作系统，但是系统分区过于复杂
+6)ubuntu：由乌班图转义而来：仁和；南非（祖鲁或者豪萨）：人性  
+口号：我的存在是因为你们的存在。
+倾向于桌面操作系统（图形界面），一般不用于服务器
+7）suse：德国，很好地实现与各种数据库兼容，能够实现自动分区
+</code></pre><h4 id="1-4-安装"><a href="#1-4-安装" class="headerlink" title="1.4 安装"></a>1.4 安装</h4><pre><code>分为图形化界面版本和Linux 文本版本
+</code></pre><h5 id="1-4-1Linux核心："><a href="#1-4-1Linux核心：" class="headerlink" title="1.4.1Linux核心："></a>1.4.1Linux核心：</h5><pre><code>1)Linux中没有盘符的概念，所有的一切都称为文件（目录、文件夹、文件、操作系统、应用程序等）；
+2)只要能装到Linux系统上的软件，则都称为有用途软件
+</code></pre><h5 id="1-4-2-分区（树状结构）"><a href="#1-4-2-分区（树状结构）" class="headerlink" title="1.4.2.分区（树状结构）"></a>1.4.2.分区（树状结构）</h5><pre><code>1)根分区：使用“/”表示，必须要有
+挂载：所有目录都是挂载在分区上面的
+2)引导分区：也叫做boot分区，用“/boot”表示，相当于windows中的BIOS引导盘。没有的话系统无法启动。
+必须存在，容量在50-100M，用于存储系统主核心shell程序
+3)swap分区：又称为交换分区，当物理内存中的链接过多内存不够的时候，将多余的链接放到swap分区中，
+等物理内存中压力缓解之后再将swap中的链接放到物理内存中进行处理。用户无法进行访问，
+大小通常为物理内存的两倍
+</code></pre><h5 id="1-4-3-文件类型："><a href="#1-4-3-文件类型：" class="headerlink" title="1.4.3.文件类型："></a>1.4.3.文件类型：</h5><pre><code>ext3、swap
+</code></pre><h5 id="1-4-4-补充"><a href="#1-4-4-补充" class="headerlink" title="1.4.4.补充"></a>1.4.4.补充</h5><blockquote>
+<ul>
+<li>安全模式：只加载系统启动最基本的设置</li>
+<li>虚拟内存：指在物理内存不够用的时候使用设置的虚拟内存暂时存储后续的数据以缓解物理内存压力，不至于系统内存崩溃，范围在物理内存的1-1.5倍</li>
+</ul>
+</blockquote>
+<h5 id="1-4-5-解析"><a href="#1-4-5-解析" class="headerlink" title="1.4.5.解析"></a>1.4.5.解析</h5><pre><code>[root@localhost ~]#：root表示当前用户；localhost表示本机；
+~表示当前用户目录；#表示管理员登陆（$表示普通用户登陆）
+</code></pre><h5 id="1-4-6-从text界面进入图形化界面："><a href="#1-4-6-从text界面进入图形化界面：" class="headerlink" title="1.4.6.从text界面进入图形化界面："></a>1.4.6.从text界面进入图形化界面：</h5><pre><code>startx
+</code></pre><h5 id="从图形化界面回到text界面："><a href="#从图形化界面回到text界面：" class="headerlink" title="从图形化界面回到text界面："></a>从图形化界面回到text界面：</h5><pre><code>system注销（logout）
+</code></pre><h2 id="二、文件系统"><a href="#二、文件系统" class="headerlink" title="二、文件系统"></a>二、文件系统</h2><h3 id="2-1文件类型"><a href="#2-1文件类型" class="headerlink" title="2.1文件类型"></a>2.1文件类型</h3><h4 id="2-1-1普通文件（regular-file）"><a href="#2-1-1普通文件（regular-file）" class="headerlink" title="2.1.1普通文件（regular file）"></a>2.1.1普通文件（regular file）</h4><pre><code>就是一般存取的文件，由ls -al显示出来的属性中，第一个属性为 [-]，例如 [-rwxrwxrwx]。
+另外，依照文件的内容，又大致可以分为：
+   1）纯文本文件（ASCII）：这是Unix系统中最多的一种文件类型，之所以称为纯文本文件，
+是因为内容可以直接读到的数据，例如数字、字母等等。
+设 置文件几乎都属于这种文件类型。举例来说，使用命令“cat ~/.bashrc”
+就可以看到该文件的内容（cat是将文件内容读出来）。
+   2）二进制文件（binary）：系统其实仅认识且可以执行二进制文件（binary file）。
+Linux中的可执行文件（脚本，文本方式的批处理文件不算）就是这种格式的。
+举例来说，命令cat就是一个二进制文件。
+   3）数据格式的文件（data）：有些程序在运行过程中，会读取某些特定格式的文件，
+那些特定格式的文件可以称为数据文件（data file）。
+举例来说，Linux在用户登入时，都会将登录数据记录在 /var/log/wtmp文件内，该文件是一个数据文件，
+它能通过last命令读出来。但使用cat时，会读出乱码。因为它是属于一种特殊格式的文件。
+</code></pre><h4 id="2-1-2目录文件（directory）"><a href="#2-1-2目录文件（directory）" class="headerlink" title="2.1.2目录文件（directory）"></a>2.1.2目录文件（directory）</h4><pre><code>就是目录，第一个属性为 [d]，例如 [drwxrwxrwx]。
+</code></pre><h4 id="2-1-3连接文件（link）"><a href="#2-1-3连接文件（link）" class="headerlink" title="2.1.3连接文件（link）"></a>2.1.3连接文件（link）</h4><pre><code>类似Windows下面的快捷方式。第一个属性为 [l]，例如 [lrwxrwxrwx]。
+</code></pre><h4 id="2-1-4设备与设备文件（device）"><a href="#2-1-4设备与设备文件（device）" class="headerlink" title="2.1.4设备与设备文件（device）"></a>2.1.4设备与设备文件（device）</h4><pre><code>与系统外设及存储等相关的一些文件，通常都集中在 /dev目录。通常又分为两种：
+</code></pre><h4 id="2-1-5块设备文件"><a href="#2-1-5块设备文件" class="headerlink" title="2.1.5块设备文件"></a>2.1.5块设备文件</h4><pre><code>就是存储数据以供系统存取的接口设备，简单而言就是硬盘。
+例如一号硬盘的代码是 /dev/hda1等文件。第一个属性为 [b]。
+</code></pre><h4 id="2-1-6字符设备文件"><a href="#2-1-6字符设备文件" class="headerlink" title="2.1.6字符设备文件"></a>2.1.6字符设备文件</h4><pre><code>即串行端口的接口设备，例如键盘、鼠标等等。第一个属性为[c] 。
+</code></pre><h4 id="2-1-7套接字（sockets）"><a href="#2-1-7套接字（sockets）" class="headerlink" title="2.1.7套接字（sockets）"></a>2.1.7套接字（sockets）</h4><pre><code>这类文件通常用在网络数据连接。可以启动一个程序来监听客户端的要求，客户端就可以通过套接
+字来进行数据通信。
+第一个属性为 [s]，最常在 /var/run目录中看到这种文件类型。
+</code></pre><h4 id="2-1-8管道（FIFO-pipe）"><a href="#2-1-8管道（FIFO-pipe）" class="headerlink" title="2.1.8管道（FIFO,pipe）"></a>2.1.8管道（FIFO,pipe）</h4><pre><code>FIFO也是一种特殊的文件类型，它主要的目的是，解决多个程序同时存取一个文件所造成的错误。
+FIFO是first-in-first-out（先进先出）的缩写。第一个属性为[p] 。
+</code></pre><h3 id="2-2文件结构"><a href="#2-2文件结构" class="headerlink" title="2.2文件结构"></a>2.2文件结构</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">目录名称</th>
+<th style="text-align:left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bin</td>
+<td style="text-align:left">基本命令目录（绿色表示可执行）</td>
+</tr>
+<tr>
+<td style="text-align:left">dev</td>
+<td style="text-align:left">设备文件目录</td>
+</tr>
+<tr>
+<td style="text-align:left">tty</td>
+<td style="text-align:left">终端串行设备</td>
+</tr>
+<tr>
+<td style="text-align:left">home</td>
+<td style="text-align:left">主目录，创建用户的时候会在该目录下自动创建一个同名的目录</td>
+</tr>
+<tr>
+<td style="text-align:left">lost+found</td>
+<td style="text-align:left">当出现系统数据丢失（比如断电）时会将数据保存在该目录下</td>
+</tr>
+<tr>
+<td style="text-align:left">net</td>
+<td style="text-align:left">网络文件目录(网络设置目录、存放网络通讯相关软件)</td>
+</tr>
+<tr>
+<td style="text-align:left">misc</td>
+<td style="text-align:left">空目录</td>
+</tr>
+<tr>
+<td style="text-align:left">proc</td>
+<td style="text-align:left">进程或内存使用信息（任务管理的相关信息）</td>
+</tr>
+<tr>
+<td style="text-align:left">sbin</td>
+<td style="text-align:left">高级命令目录</td>
+</tr>
+<tr>
+<td style="text-align:left">srv</td>
+<td style="text-align:left">空目录</td>
+</tr>
+<tr>
+<td style="text-align:left">tftpboot</td>
+<td style="text-align:left">ftp信息存放在该目录中（ftp根目录）</td>
+</tr>
+<tr>
+<td style="text-align:left">usr</td>
+<td style="text-align:left">软件安装时默认安装目录</td>
+</tr>
+<tr>
+<td style="text-align:left">boot</td>
+<td style="text-align:left">内核程序、引导分区程序</td>
+</tr>
+<tr>
+<td style="text-align:left">etc</td>
+<td style="text-align:left">配置文件目录（shift+pageup/pagedown  页面上翻/下翻）</td>
+</tr>
+<tr>
+<td style="text-align:left">lib</td>
+<td style="text-align:left">类库</td>
+</tr>
+<tr>
+<td style="text-align:left">media</td>
+<td style="text-align:left">媒体目录</td>
+</tr>
+<tr>
+<td style="text-align:left">mnt</td>
+<td style="text-align:left">光驱挂载点目录（将光驱中的资源挂载到该目录中）</td>
+</tr>
+<tr>
+<td style="text-align:left">opt</td>
+<td style="text-align:left">操作的文件信息</td>
+</tr>
+<tr>
+<td style="text-align:left">root</td>
+<td style="text-align:left">root用户/管理员目录</td>
+</tr>
+<tr>
+<td style="text-align:left">SElinux</td>
+<td style="text-align:left">Linux shell主配置文件目录</td>
+</tr>
+<tr>
+<td style="text-align:left">sys</td>
+<td style="text-align:left">系统目录</td>
+</tr>
+<tr>
+<td style="text-align:left">tmp</td>
+<td style="text-align:left">临时目录，用于存放垃圾文件</td>
+</tr>
+<tr>
+<td style="text-align:left">var</td>
+<td style="text-align:left">缓存、临时数据、临时变量存放在该目录中</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-3常用命令及技巧"><a href="#2-3常用命令及技巧" class="headerlink" title="2.3常用命令及技巧"></a>2.3常用命令及技巧</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">命令/用途</th>
+<th style="text-align:left">用途/命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">查看文件、文件夹</td>
+<td style="text-align:left">dir</td>
+</tr>
+<tr>
+<td style="text-align:left">显示文件内容</td>
+<td style="text-align:left">cat文件名</td>
+</tr>
+<tr>
+<td style="text-align:left">~</td>
+<td style="text-align:left">表示root用户目录、宿主目录</td>
+</tr>
+<tr>
+<td style="text-align:left">cd    /</td>
+<td style="text-align:left">进入根目录（ /表示根目录）</td>
+</tr>
+<tr>
+<td style="text-align:left">ls</td>
+<td style="text-align:left">表示显示全部文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ls  -l</td>
+<td style="text-align:left">表示显示文件详细信息</td>
+</tr>
+<tr>
+<td style="text-align:left">ls  -a</td>
+<td style="text-align:left">表示显示文件包括隐藏文件的详细信息</td>
+</tr>
+<tr>
+<td style="text-align:left">dir –a</td>
+<td style="text-align:left">同上（无颜色）</td>
+</tr>
+<tr>
+<td style="text-align:left">pwd</td>
+<td style="text-align:left">表示显示当前目录所在路径</td>
+</tr>
+<tr>
+<td style="text-align:left">#</td>
+<td style="text-align:left">表示管理员登陆</td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left">表示普通用户登陆</td>
+</tr>
+<tr>
+<td style="text-align:left">显示当前工作目录</td>
+<td style="text-align:left">pwd</td>
+</tr>
+<tr>
+<td style="text-align:left">显示当前目录中的文件</td>
+<td style="text-align:left">ls 或dir</td>
+</tr>
+<tr>
+<td style="text-align:left">切换目录</td>
+<td style="text-align:left">cd</td>
+</tr>
+<tr>
+<td style="text-align:left">切换到root目录</td>
+<td style="text-align:left">cd ~ 或cd /root</td>
+</tr>
+<tr>
+<td style="text-align:left">切换到根目录</td>
+<td style="text-align:left">cd /</td>
+</tr>
+<tr>
+<td style="text-align:left">切换到上级目录</td>
+<td style="text-align:left">cd ..</td>
+</tr>
+<tr>
+<td style="text-align:left">切换到当前目录</td>
+<td style="text-align:left">cd .</td>
+</tr>
+<tr>
+<td style="text-align:left">创建文件夹</td>
+<td style="text-align:left">mkdir</td>
+</tr>
+<tr>
+<td style="text-align:left">删除文件夹</td>
+<td style="text-align:left">rmdir（不能直接删除不为空的目录）</td>
+</tr>
+<tr>
+<td style="text-align:left">创建文件</td>
+<td style="text-align:left">vi 或 vim 文件名.后缀</td>
+</tr>
+<tr>
+<td style="text-align:left">关机</td>
+<td style="text-align:left">shutdown/poweroff/halt</td>
+</tr>
+<tr>
+<td style="text-align:left">重启</td>
+<td style="text-align:left">reboot</td>
+</tr>
+<tr>
+<td style="text-align:left">注销</td>
+<td style="text-align:left">logout、exit</td>
+</tr>
+<tr>
+<td style="text-align:left">vi 文件名.后缀按“i”（进入插入模式）</td>
+<td style="text-align:left">vi</td>
+</tr>
+<tr>
+<td style="text-align:left">保存并退出</td>
+<td style="text-align:left">:wq</td>
+</tr>
+<tr>
+<td style="text-align:left">不保存退出</td>
+<td style="text-align:left">:q</td>
+</tr>
+<tr>
+<td style="text-align:left">强制退出</td>
+<td style="text-align:left">:q!</td>
+</tr>
+<tr>
+<td style="text-align:left">去除插入模式</td>
+<td style="text-align:left">按esc</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class=" fa fa-paw "> </i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="Yujian Zhong 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="Yujian Zhong 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/软件测试/" rel="tag"># 软件测试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/21/原-Microsoft-SQL-Server学习（二）-数据库的语法/" rel="next" title="[原]Microsoft SQL Server学习（二）--数据库的语法">
+                <i class="fa fa-chevron-left"></i> [原]Microsoft SQL Server学习（二）--数据库的语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/27/原-Monkey测试总结/" rel="prev" title="[原]Monkey测试总结">
+                [原]Monkey测试总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header1.jpg"
+                alt="Yujian Zhong" />
+            
+              <p class="site-author-name" itemprop="name">Yujian Zhong</p>
+              <p class="site-description motion-element" itemprop="description">Tester</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/tags.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Linux概述"><span class="nav-number">1.</span> <span class="nav-text">一、Linux概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#百度百科概述"><span class="nav-number">1.1.</span> <span class="nav-text">百度百科概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1由来"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1由来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2与UNIX的区别"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2与UNIX的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-版本"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3.版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-安装"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-1Linux核心："><span class="nav-number">1.1.4.1.</span> <span class="nav-text">1.4.1Linux核心：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-2-分区（树状结构）"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">1.4.2.分区（树状结构）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-3-文件类型："><span class="nav-number">1.1.4.3.</span> <span class="nav-text">1.4.3.文件类型：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-4-补充"><span class="nav-number">1.1.4.4.</span> <span class="nav-text">1.4.4.补充</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-5-解析"><span class="nav-number">1.1.4.5.</span> <span class="nav-text">1.4.5.解析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-4-6-从text界面进入图形化界面："><span class="nav-number">1.1.4.6.</span> <span class="nav-text">1.4.6.从text界面进入图形化界面：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#从图形化界面回到text界面："><span class="nav-number">1.1.4.7.</span> <span class="nav-text">从图形化界面回到text界面：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、文件系统"><span class="nav-number">2.</span> <span class="nav-text">二、文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1文件类型"><span class="nav-number">2.1.</span> <span class="nav-text">2.1文件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1普通文件（regular-file）"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1普通文件（regular file）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2目录文件（directory）"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2目录文件（directory）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3连接文件（link）"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3连接文件（link）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4设备与设备文件（device）"><span class="nav-number">2.1.4.</span> <span class="nav-text">2.1.4设备与设备文件（device）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-5块设备文件"><span class="nav-number">2.1.5.</span> <span class="nav-text">2.1.5块设备文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-6字符设备文件"><span class="nav-number">2.1.6.</span> <span class="nav-text">2.1.6字符设备文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-7套接字（sockets）"><span class="nav-number">2.1.7.</span> <span class="nav-text">2.1.7套接字（sockets）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-8管道（FIFO-pipe）"><span class="nav-number">2.1.8.</span> <span class="nav-text">2.1.8管道（FIFO,pipe）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2文件结构"><span class="nav-number">2.2.</span> <span class="nav-text">2.2文件结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3常用命令及技巧"><span class="nav-number">2.3.</span> <span class="nav-text">2.3常用命令及技巧</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yujian Zhong</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  Number of visitors to the station:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

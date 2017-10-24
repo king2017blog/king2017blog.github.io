@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软件测试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="King's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="软件测试概念1.软件测试概念    广义概念：指软件生存周期中所有的检查、评审和确认工作，其中包括了对分析、设计阶段， 以及完成开发后维护阶段的各类文档、代码的审查和确认     狭义概念：识别软件缺陷的过程，即实际结果与预期结果的不一致 2.软件测试目的测试的目的就是发现软件中的各种缺陷 测试只能证明软件存在缺陷，不能证明软件不存在缺陷 测试可以使软件中缺陷降低到一定程度，而不是彻底消灭">
+<meta name="keywords" content="软件测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转]软件测试概念">
+<meta property="og:url" content="http://yoursite.com/2017/09/27/转-软件测试概念/index.html">
+<meta property="og:site_name" content="King&#39;s Blog">
+<meta property="og:description" content="软件测试概念1.软件测试概念    广义概念：指软件生存周期中所有的检查、评审和确认工作，其中包括了对分析、设计阶段， 以及完成开发后维护阶段的各类文档、代码的审查和确认     狭义概念：识别软件缺陷的过程，即实际结果与预期结果的不一致 2.软件测试目的测试的目的就是发现软件中的各种缺陷 测试只能证明软件存在缺陷，不能证明软件不存在缺陷 测试可以使软件中缺陷降低到一定程度，而不是彻底消灭">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20170927173438809?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170927173540017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-10-19T12:04:09.738Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[转]软件测试概念">
+<meta name="twitter:description" content="软件测试概念1.软件测试概念    广义概念：指软件生存周期中所有的检查、评审和确认工作，其中包括了对分析、设计阶段， 以及完成开发后维护阶段的各类文档、代码的审查和确认     狭义概念：识别软件缺陷的过程，即实际结果与预期结果的不一致 2.软件测试目的测试的目的就是发现软件中的各种缺陷 测试只能证明软件存在缺陷，不能证明软件不存在缺陷 测试可以使软件中缺陷降低到一定程度，而不是彻底消灭">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170927173438809?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/27/转-软件测试概念/"/>
+
+
+
+
+
+  <title>[转]软件测试概念 | King's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">King's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/source/404" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-404.html"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/转-软件测试概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yujian Zhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="King's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[转]软件测试概念</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T17:28:50+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/测试经验文/" itemprop="url" rel="index">
+                    <span itemprop="name">测试经验文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+      
+      
+
+      
+        <h2 id="软件测试概念"><a href="#软件测试概念" class="headerlink" title="软件测试概念"></a>软件测试概念</h2><h4 id="1-软件测试概念"><a href="#1-软件测试概念" class="headerlink" title="1.软件测试概念"></a>1.软件测试概念</h4><pre><code>    广义概念：指软件生存周期中所有的检查、评审和确认工作，其中包括了对分析、设计阶段，
+以及完成开发后维护阶段的各类文档、代码的审查和确认
+    狭义概念：识别软件缺陷的过程，即实际结果与预期结果的不一致
+</code></pre><h4 id="2-软件测试目的"><a href="#2-软件测试目的" class="headerlink" title="2.软件测试目的"></a>2.软件测试目的</h4><pre><code>测试的目的就是发现软件中的各种缺陷
+测试只能证明软件存在缺陷，不能证明软件不存在缺陷
+测试可以使软件中缺陷降低到一定程度，而不是彻底消灭
+以较少的用例、时间和人力找出软件中的各种错误和缺陷，以确保软件的质量
+</code></pre><a id="more"></a>
+<h4 id="3．软件测试原则"><a href="#3．软件测试原则" class="headerlink" title="3．软件测试原则"></a>3．软件测试原则</h4><ol>
+<li>Good-enough: 一种权衡投入/产出比的原则</li>
+<li>保证测试的覆盖程度，但穷举测试是不可能的</li>
+<li>所有的测试都应追溯到用户需求</li>
+<li>越早测试越好，测试过程与开发过程应是相结合的</li>
+<li>测试的规模由小而大，从单元测试到系统测试</li>
+<li>为了尽可能地发现错误，应该由独立的第三方来测试</li>
+<li>不能为了便于测试擅自修改程序</li>
+<li><p>既应该测试软件该做什么也应该测试软件不该做什么</p>
+<h4 id="4．软件测试的的重点"><a href="#4．软件测试的的重点" class="headerlink" title="4．软件测试的的重点"></a>4．软件测试的的重点</h4><p>1)测试用例的设计<br>   测试用例的设计是整个软件测试工作的核心<br>   测试用例反映对被测对象的质量要求，决定对测试对象的质量评估<br>2)测试工作的管理<br>   尤其是对包含多个子系统的大型软件系统，其测试工作涉及大量人力和物力，有效的测试工作管理是保证有效测试工作的必要前提<br>3）测试环境的建立</p>
+</li>
+</ol>
+<h4 id="5．黑盒测试"><a href="#5．黑盒测试" class="headerlink" title="5．黑盒测试"></a>5．黑盒测试</h4><h5 id="什么是黑盒测试？"><a href="#什么是黑盒测试？" class="headerlink" title="什么是黑盒测试？"></a>什么是黑盒测试？</h5><pre><code>  又称功能测试或数据驱动测试，是针对软件的功能需求/实现进行测试，通过测试来检测每个功能
+是否符合需求，不考虑程序内部的逻辑结构
+</code></pre><h5 id="黑盒测试方法"><a href="#黑盒测试方法" class="headerlink" title="黑盒测试方法"></a>黑盒测试方法</h5><ol>
+<li>功能划分</li>
+<li>等价类划分</li>
+<li>边界值分析</li>
+<li>因果图</li>
+<li>错误推测……<br>(详见博文用例设计<a href="http://blog.csdn.net/qq_36155340/article/details/73800006" target="_blank" rel="external">黑河测试八大法</a>)</li>
+</ol>
+<h4 id="6．什么是白盒测试"><a href="#6．什么是白盒测试" class="headerlink" title="6．什么是白盒测试"></a>6．什么是白盒测试</h4><pre><code>   白盒测试也称结构测试或逻辑驱动测试，必须知道软件内部工作过程，
+通过测试来检测软件内部是否按照需求、设计正常运行
+</code></pre><h5 id="白盒测试的主要方法"><a href="#白盒测试的主要方法" class="headerlink" title="白盒测试的主要方法"></a>白盒测试的主要方法</h5><pre><code>对应于程序的一些主要结构：语句、分支、逻辑路径、变量；白盒测试的主要方法是：
+语句覆盖方法
+分支覆盖方法
+逻辑覆盖方法.....
+(白盒测试六大法----暂未发布博文------)
+</code></pre><h4 id="7-什么是动态测试"><a href="#7-什么是动态测试" class="headerlink" title="7.什么是动态测试"></a>7.什么是动态测试</h4><pre><code>动态测试需要在开发/测试环境或实际运行环境中运行软件，并使用测试用例去查找软件缺陷；
+动态测试包括功能确认与接口测试、覆盖率分析、性能分析、内存分析等  
+</code></pre><h4 id="8-什么是静态测试"><a href="#8-什么是静态测试" class="headerlink" title="8.什么是静态测试"></a>8.什么是静态测试</h4><pre><code>它可以由人工进行，也可以借助软件工具自动进行 
+</code></pre><h4 id="9-手工测试和自动测试"><a href="#9-手工测试和自动测试" class="headerlink" title="9.手工测试和自动测试"></a>9.手工测试和自动测试</h4><pre><code>a.手工测试缺点在于测试工作量大，重复多，回归测试难以实现
+b.自动测试利用软件测试工具自动实现全部或部分测试工作：管理、设计、执行和报告；节省大量
+的测试开销，并能够完成一些手工测试无法实现的测试
+</code></pre><h4 id="手工完成测试的全部过程无法保证测试的科学性与严密性"><a href="#手工完成测试的全部过程无法保证测试的科学性与严密性" class="headerlink" title="手工完成测试的全部过程无法保证测试的科学性与严密性:"></a>手工完成测试的全部过程无法保证测试的科学性与严密性:</h4><pre><code>修改的缺陷越多，回归测试越困难
+没有人能向决策层提供精确的数据以度量当前的工作进度及工作效率
+反复测试带来的倦怠情绪及其他人为因素使得测试标准前后不一
+测试花费的时间越长，测试的严格性也就越低
+</code></pre><h4 id="自动测试将测试人员从反复、烦杂的测试执行中解放出来，用更多的时间进行测试设计和结果分析"><a href="#自动测试将测试人员从反复、烦杂的测试执行中解放出来，用更多的时间进行测试设计和结果分析" class="headerlink" title="自动测试将测试人员从反复、烦杂的测试执行中解放出来，用更多的时间进行测试设计和结果分析"></a>自动测试将测试人员从反复、烦杂的测试执行中解放出来，用更多的时间进行测试设计和结果分析</h4><pre><code>软件测试不可能完全自动化 
+
+不能完成所有手工测试任务 
+
+无创造性且灵活性差，不能改进测试的有效性 
+
+过程中可能会遇到许多意想不到的问题，特别是当软件不稳定时 
+
+测试脚本的维护高
+</code></pre><hr>
+<h4 id="10-测试流程"><a href="#10-测试流程" class="headerlink" title="10. 测试流程"></a>10. 测试流程</h4><pre><code>单元测试  
+
+集成测试  
+
+系统测试  
+
+用户验收测试  
+
+回归测试 
+</code></pre><p><img src="http://img.blog.csdn.net/20170927173438809?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="1"></p>
+<p><img src="http://img.blog.csdn.net/20170927173540017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="2"></p>
+<hr>
+<h4 id="11-单元测试"><a href="#11-单元测试" class="headerlink" title="11.单元测试"></a>11.单元测试</h4><pre><code>完成对最小的软件设计单元—模块的验证工作 
+
+目标是确保模块被正确地编码 
+
+使用过程设计描述作为指南，对重要的控制路径进行测试以发现模块内的错误 
+
+通常情况下是面向白盒的 
+
+对代码风格和规则、程序设计和结构、业务逻辑等进行静态测试，及早地发现和解决不易显现的错误 
+
+单元测试的内容 
+
+–接口测试 
+
+–内部数据结构 
+
+–全局数据结构 
+
+–边界 
+
+–语句覆盖，错误路径
+</code></pre><h4 id="12-集成测试"><a href="#12-集成测试" class="headerlink" title="12.集成测试"></a>12.集成测试</h4><pre><code>通过测试发现与模块接口有关的问题 
+
+目标是把通过了单元测试的模块拿来，构造一个在设计中所描述的程序结构  
+
+应当避免一次性的集成（除非软件规模很小），而采用增量集成 
+
+集成测试主要内容 
+
+API 
+
+API/参数组合
+</code></pre><h4 id="13．系统测试"><a href="#13．系统测试" class="headerlink" title="13．系统测试"></a>13．系统测试</h4><pre><code>根据软件需求规范的要求进行系统测试，确认系统满足需求的要求 
+
+系统测试人员相当于用户代言人 
+
+在需求分析阶段要确定软件的可测性，保证有效完成系统测试工作 
+
+系统测试主要内容 
+
+所有功能需求得到满足 
+
+所有性能需求得到满足 
+
+其他需求（例如安全性、容错性、兼容性等）得到满足
+</code></pre><h4 id="14-用户验收-确认测试"><a href="#14-用户验收-确认测试" class="headerlink" title="14.用户验收/确认测试"></a>14.用户验收/确认测试</h4><pre><code>Alpha测试 
+
+–是由用户在开发者的场所来进行的，Alpha测试是在一个受控的环境中进行的 
+
+Beta测试 
+
+–由软件的最终用户在一个或多个用户场所来进行的，开发者通常不在现场，
+用户记录测试中遇到的问题并报告给开发者
+</code></pre><h4 id="15．压力测试VS性能测试"><a href="#15．压力测试VS性能测试" class="headerlink" title="15．压力测试VS性能测试"></a>15．压力测试VS性能测试</h4><pre><code>   性能测试的目的不是去找bugs,而是排除系统的瓶颈，以及为以后的回归测试建立一个基准。
+   而性能测试的操作，实际上就是一个非常小心受控的测量分析过程。在理想的情况下，
+被测软件在这个时候已经是足够稳定了
+每个用户是否都还可以正常的完成操作等。
+   概括就是：在不同负载下（负载一定）时，通过一些系统参数（如反应时间等）检查系统的运行情况；
+   压力测试是为了发现系统能支持的最大负载，他的前提是要求系统性能处在可以接受的范围内，
+比如经常规定的叶面3秒钟内响应；
+   概括就是：在性能可以接受的前提下，测试系统可以支持的最大负载。
+如果同时对系统进行大量的数据查询操作，就包含了强度测试。
+</code></pre><hr>
+<h3 id="软件生命周期-SDLC-的六个阶段"><a href="#软件生命周期-SDLC-的六个阶段" class="headerlink" title="软件生命周期(SDLC)的六个阶段"></a>软件生命周期(SDLC)的六个阶段</h3><h4 id="1、问题的定义及规划"><a href="#1、问题的定义及规划" class="headerlink" title="1、问题的定义及规划"></a>1、问题的定义及规划</h4><pre><code>此阶段是软件开发方与需求方共同讨论，主要确定软件的开发目标及其可行性。
+</code></pre><h4 id="2、需求分析"><a href="#2、需求分析" class="headerlink" title="2、需求分析"></a>2、需求分析</h4><pre><code>   在确定软件开发可行的情况下，对软件需要实现的各个功能进行详细分析。
+需求分析阶段是一个很重要的阶段，这一阶段做得好，将为整个软件开发项目的成功打下良好的
+基础。&quot;唯一不变的是变
+化本身。&quot;，同样需求也是在整个软件开发过程中不断变化和深入的，因此我们必须制定需求变更计
+划来应付这种变化，以保护整个项目的顺利进行。
+</code></pre><h4 id="3、软件设计"><a href="#3、软件设计" class="headerlink" title="3、软件设计"></a>3、软件设计</h4><pre><code> 此阶段主要根据需求分析的结果，对整个软件系统进行设计，如系统框架设计，数据库设计等等。
+软件设计一般分为总体设计和详细设计。好的软件设计将为软件程序编写打下良好的基础。
+</code></pre><h4 id="4、程序编码"><a href="#4、程序编码" class="headerlink" title="4、程序编码"></a>4、程序编码</h4><pre><code>    此阶段是将软件设计的结果转换成计算机可运行的程序代码。在程序编码中必须要制定统一，
+符合标准的编写规范。以保证程序的可读性，易维护性，提高程序的运行效率。
+</code></pre><h4 id="5、软件测试"><a href="#5、软件测试" class="headerlink" title="5、软件测试"></a>5、软件测试</h4><pre><code>  在软件设计完成后要经过严密的测试，以发现软件在整个设计过程中存在的问题并加以纠正。
+整个测试过程分单元测试、组装测试以及系统测试三个阶段进行。测试的方法主要有白盒测试和黑
+盒测试两种。在测试过程中需要建立详细的测试计划并严格按照测试计划进行测试，以减少测试的
+随意性。
+</code></pre><h4 id="6、运行维护"><a href="#6、运行维护" class="headerlink" title="6、运行维护"></a>6、运行维护</h4><pre><code>软件维护是软件生命周期中持续时间最长的阶段。在软件开发完成并投入使用后，由于多方面的原
+因，软件不能继续适应用户的要求。要延续软件的使用寿命，就必须对软件进行维护。软件的维护
+包括纠错性维护和改进性维护两个方面。
+
+从概念提出的那一刻开始，软件产品就进入了软件生命周期。在经历需求、分析、设计、实现、部
+署后，软件将被使用并进入维护阶段，直到最后由于缺少维护费用而逐渐消亡。这样的一个过程，
+称为&quot;生命周期模型&quot;（Life Cycle Model）
+</code></pre><h3 id="开发模型"><a href="#开发模型" class="headerlink" title="开发模型"></a>开发模型</h3><p>瀑布模型的特点（文档是主体），很多的问题在最后才会暴露出来。 </p>
+<p>迭代模型比瀑布模型问题暴露的要早； </p>
+<p>快速原型法比瀑布模型直观。</p>
+<p>=============================</p>
+<h3 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h3><h3 id="主流测试工具的测试流程"><a href="#主流测试工具的测试流程" class="headerlink" title="主流测试工具的测试流程"></a>主流测试工具的测试流程</h3><h3 id="winrunner"><a href="#winrunner" class="headerlink" title="winrunner"></a>winrunner</h3><p>1　启动时选择要加载的插件 </p>
+<p>2　进行一些设置（如录制模式等） </p>
+<p>3　识别应用程序的GUI，即创建map(就是学习被测试软件的界面） </p>
+<p>4　建立测试脚本（录制及编写） </p>
+<p>5　对脚本除错及调试（保证能够运行完） </p>
+<p>6　插入各种检查点（图片，文字，控件等） </p>
+<p>7　在新版应用程序中执行测试脚本 </p>
+<p>8　分析结果，回报缺陷 </p>
+<h3 id="quicktestpro"><a href="#quicktestpro" class="headerlink" title="quicktestpro"></a>quicktestpro</h3><p>1　准备录制 </p>
+<p>打开你要对其进行测试的应用程序，并检查QuickTest中的各项设置是否适合当前的要求。</p>
+<p>2　进行录制 </p>
+<p>打开QuickTest的录制功能，按测试用例中的描述，操作被测试应用程序。</p>
+<p>3　编辑测试脚本 </p>
+<p>通过加入检测点、参数化测试，以及添加分支、循环等控制语句，来增强测试脚本的功能，使将来的回归测试真正能够自动化。</p>
+<p>4　调试脚本 </p>
+<p>调试脚本，检查脚本是否存在错误。</p>
+<p>5　在回归测试中运行测试 </p>
+<p>在对应用程序的回归测试中，通过QuickTest回放对应用程序的操作，检验软件正确性，实现测试的自动化进行。</p>
+<p>6　分析结果，报告问题 </p>
+<p>查看QuickTest记录的运行结果，记录问题，报告测试结果。</p>
+<h3 id="TestDirect"><a href="#TestDirect" class="headerlink" title="TestDirect"></a>TestDirect</h3><p>安装好后，先进入站点管理 </p>
+<p>1　创建域及工程 </p>
+<p>2　添加用户 </p>
+<p>3　编辑licenses及本服务器 </p>
+<p>4　编辑数据库</p>
+<h3 id="TD"><a href="#TD" class="headerlink" title="TD"></a>TD</h3><p>1　选择新建的工程进行定制(列表，用户，组，版本等) </p>
+<p>2　在require中增加需求 </p>
+<p>3　把需求转化为plan </p>
+<p>4 在testlab中由计划新建测试具体用例与执行 </p>
+<p>5　发现bug，在defect中提交bug </p>
+<p>（每一部分都可以相对独立地使用）</p>
+<h3 id="loadrunner"><a href="#loadrunner" class="headerlink" title="loadrunner"></a>loadrunner</h3><p>1　制定负载测试计划 </p>
+<p>(分析应用程序， 确定测试目标，计划怎样执行LoadRunner）</p>
+<p>2　开发测试脚本 </p>
+<p>（录制基本的用户脚本，完善测试脚本）</p>
+<p>3　创建运行场景 </p>
+<p>（选择场景类型为Manual Scenario，选择场景类型，理解各种类型，场景的类型转化）</p>
+<p>4　运行测试</p>
+<p>5　监视场景 </p>
+<p>（MEMORY 相关，PROCESSOR相关，网络吞量以及带宽，磁盘相关，WEB应用程序 ，IIS5.0，SQL SERVER，NETWORK DELAY等)</p>
+<p>6　分析测试结果 </p>
+<p>(分析实时监视图表,分析事务的响应时间,分解页面,确定WEBSERVER的问题,其他有用的功能)</p>
+<p>=========此文未转载自微信公众号+个人修改=========</p>
+
+      
+    </div>
+    
+    
+    
+
+<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class=" fa fa-paw "> </i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="Yujian Zhong 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="Yujian Zhong 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag"># 软件测试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/27/原-接口测试（一）-soapui实践/" rel="next" title="[原]接口测试（一）--soapui实践">
+                <i class="fa fa-chevron-left"></i> [原]接口测试（一）--soapui实践
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/28/原-Microsoft-SQL-Server学习（三）/" rel="prev" title="[原]Microsoft SQL Server学习（三）">
+                [原]Microsoft SQL Server学习（三） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header1.jpg"
+                alt="Yujian Zhong" />
+            
+              <p class="site-author-name" itemprop="name">Yujian Zhong</p>
+              <p class="site-description motion-element" itemprop="description">Tester</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/tags.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件测试概念"><span class="nav-number">1.</span> <span class="nav-text">软件测试概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-软件测试概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.软件测试概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-软件测试目的"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.软件测试目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3．软件测试原则"><span class="nav-number">1.0.3.</span> <span class="nav-text">3．软件测试原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4．软件测试的的重点"><span class="nav-number">1.0.4.</span> <span class="nav-text">4．软件测试的的重点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5．黑盒测试"><span class="nav-number">1.0.5.</span> <span class="nav-text">5．黑盒测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是黑盒测试？"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">什么是黑盒测试？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#黑盒测试方法"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">黑盒测试方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6．什么是白盒测试"><span class="nav-number">1.0.6.</span> <span class="nav-text">6．什么是白盒测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#白盒测试的主要方法"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">白盒测试的主要方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-什么是动态测试"><span class="nav-number">1.0.7.</span> <span class="nav-text">7.什么是动态测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-什么是静态测试"><span class="nav-number">1.0.8.</span> <span class="nav-text">8.什么是静态测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-手工测试和自动测试"><span class="nav-number">1.0.9.</span> <span class="nav-text">9.手工测试和自动测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手工完成测试的全部过程无法保证测试的科学性与严密性"><span class="nav-number">1.0.10.</span> <span class="nav-text">手工完成测试的全部过程无法保证测试的科学性与严密性:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动测试将测试人员从反复、烦杂的测试执行中解放出来，用更多的时间进行测试设计和结果分析"><span class="nav-number">1.0.11.</span> <span class="nav-text">自动测试将测试人员从反复、烦杂的测试执行中解放出来，用更多的时间进行测试设计和结果分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-测试流程"><span class="nav-number">1.0.12.</span> <span class="nav-text">10. 测试流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-单元测试"><span class="nav-number">1.0.13.</span> <span class="nav-text">11.单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-集成测试"><span class="nav-number">1.0.14.</span> <span class="nav-text">12.集成测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13．系统测试"><span class="nav-number">1.0.15.</span> <span class="nav-text">13．系统测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-用户验收-确认测试"><span class="nav-number">1.0.16.</span> <span class="nav-text">14.用户验收/确认测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15．压力测试VS性能测试"><span class="nav-number">1.0.17.</span> <span class="nav-text">15．压力测试VS性能测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件生命周期-SDLC-的六个阶段"><span class="nav-number">1.1.</span> <span class="nav-text">软件生命周期(SDLC)的六个阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、问题的定义及规划"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、问题的定义及规划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、需求分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、需求分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、软件设计"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、软件设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、程序编码"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、程序编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、软件测试"><span class="nav-number">1.1.5.</span> <span class="nav-text">5、软件测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、运行维护"><span class="nav-number">1.1.6.</span> <span class="nav-text">6、运行维护</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发模型"><span class="nav-number">1.2.</span> <span class="nav-text">开发模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐"><span class="nav-number">1.3.</span> <span class="nav-text">推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主流测试工具的测试流程"><span class="nav-number">1.4.</span> <span class="nav-text">主流测试工具的测试流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#winrunner"><span class="nav-number">1.5.</span> <span class="nav-text">winrunner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quicktestpro"><span class="nav-number">1.6.</span> <span class="nav-text">quicktestpro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TestDirect"><span class="nav-number">1.7.</span> <span class="nav-text">TestDirect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TD"><span class="nav-number">1.8.</span> <span class="nav-text">TD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loadrunner"><span class="nav-number">1.9.</span> <span class="nav-text">loadrunner</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yujian Zhong</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  Number of visitors to the station:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

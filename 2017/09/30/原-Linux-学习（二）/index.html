@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,软件测试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="King's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Linux相关命令   命令 说明     startx 当前用户界面切换至图形界面   init5 切换至另一用户的图形化界面   init3 从图形界面切换回文本界面   pwd 显示当前用户路径   logout 注销   shutdown/poweroff/halt 关机   reboot 重启   clear 清屏   who 显示当前用户   man 找帮助">
+<meta name="keywords" content="Linux,软件测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原]Linux 学习（二）">
+<meta property="og:url" content="http://yoursite.com/2017/09/30/原-Linux-学习（二）/index.html">
+<meta property="og:site_name" content="King&#39;s Blog">
+<meta property="og:description" content="Linux相关命令   命令 说明     startx 当前用户界面切换至图形界面   init5 切换至另一用户的图形化界面   init3 从图形界面切换回文本界面   pwd 显示当前用户路径   logout 注销   shutdown/poweroff/halt 关机   reboot 重启   clear 清屏   who 显示当前用户   man 找帮助">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-19T11:53:27.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[原]Linux 学习（二）">
+<meta name="twitter:description" content="Linux相关命令   命令 说明     startx 当前用户界面切换至图形界面   init5 切换至另一用户的图形化界面   init3 从图形界面切换回文本界面   pwd 显示当前用户路径   logout 注销   shutdown/poweroff/halt 关机   reboot 重启   clear 清屏   who 显示当前用户   man 找帮助">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/30/原-Linux-学习（二）/"/>
+
+
+
+
+
+  <title>[原]Linux 学习（二） | King's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">King's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/source/404" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-404.html"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/原-Linux-学习（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yujian Zhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="King's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[原]Linux 学习（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T14:54:06+08:00">
+                2017-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+      
+      
+
+      
+        <h3 id="Linux相关命令"><a href="#Linux相关命令" class="headerlink" title="Linux相关命令"></a>Linux相关命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">startx</td>
+<td style="text-align:left">当前用户界面切换至图形界面</td>
+</tr>
+<tr>
+<td style="text-align:left">init5</td>
+<td style="text-align:left">切换至另一用户的图形化界面</td>
+</tr>
+<tr>
+<td style="text-align:left">init3</td>
+<td style="text-align:left">从图形界面切换回文本界面</td>
+</tr>
+<tr>
+<td style="text-align:left">pwd</td>
+<td style="text-align:left">显示当前用户路径</td>
+</tr>
+<tr>
+<td style="text-align:left">logout</td>
+<td style="text-align:left">注销</td>
+</tr>
+<tr>
+<td style="text-align:left">shutdown/poweroff/halt</td>
+<td style="text-align:left">关机</td>
+</tr>
+<tr>
+<td style="text-align:left">reboot</td>
+<td style="text-align:left">重启</td>
+</tr>
+<tr>
+<td style="text-align:left">clear</td>
+<td style="text-align:left">清屏</td>
+</tr>
+<tr>
+<td style="text-align:left">who</td>
+<td style="text-align:left">显示当前用户</td>
+</tr>
+<tr>
+<td style="text-align:left">man</td>
+<td style="text-align:left">找帮助</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h3 id="针对文件、文件夹的操作"><a href="#针对文件、文件夹的操作" class="headerlink" title="针对文件、文件夹的操作"></a>针对文件、文件夹的操作</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">rmdir</td>
+<td style="text-align:left">删除文件夹（不能删除空文件夹）</td>
+</tr>
+<tr>
+<td style="text-align:left">rmdir -rf</td>
+<td style="text-align:left">递归删除非空目录下的一切（从里到外）</td>
+</tr>
+<tr>
+<td style="text-align:left">rm</td>
+<td style="text-align:left">删除文件</td>
+</tr>
+<tr>
+<td style="text-align:left">rm -rf   *</td>
+<td style="text-align:left">删除目录文件夹下所有</td>
+</tr>
+<tr>
+<td style="text-align:left">Rm  -rf  相对路径</td>
+<td style="text-align:left">删除相对路径下的文件夹或文件</td>
+</tr>
+<tr>
+<td style="text-align:left">Rm  -rf 绝对路径</td>
+<td style="text-align:left">删除绝对路径对应的文件夹或文件</td>
+</tr>
+<tr>
+<td style="text-align:left">Touch 文件名</td>
+<td style="text-align:left">创建空白文件</td>
+</tr>
+<tr>
+<td style="text-align:left">cat   文件名</td>
+<td style="text-align:left">查看 文件内容</td>
+</tr>
+<tr>
+<td style="text-align:left">cp  文件   绝对路径</td>
+<td style="text-align:left">拷贝文件至相应的位置</td>
+</tr>
+<tr>
+<td style="text-align:left">mv  文件  绝对路径</td>
+<td style="text-align:left">移动和剪切文件至指定位置</td>
+</tr>
+<tr>
+<td style="text-align:left">which  命令</td>
+<td style="text-align:left">查找命令的路径</td>
+</tr>
+<tr>
+<td style="text-align:left">where is 命令</td>
+<td style="text-align:left">查找命令配置的环境变量路径</td>
+</tr>
+<tr>
+<td style="text-align:left">find  -文件名、文件夹名</td>
+<td style="text-align:left">查找</td>
+</tr>
+<tr>
+<td style="text-align:left">grep</td>
+<td style="text-align:left">针对文件 查找行-按文件内容查找</td>
+</tr>
+<tr>
+<td style="text-align:left">cut</td>
+<td style="text-align:left">剪切文件字节数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="文件的详细信息"><a href="#文件的详细信息" class="headerlink" title="文件的详细信息"></a>文件的详细信息</h3><blockquote>
+<ul>
+<li>Drwx——3 xiao big 4096 sep 14 08:12 test</li>
+<li>D[rwx][—][—] 1+3+3+3</li>
+<li>第一位：表示文件的类型；其中[D]文件夹（文件夹属于一个特殊的文件）</li>
+</ul>
+</blockquote>
+<pre><code>[-]普通文件；
+[l] 连接文件；
+[c]字符设备文件；
+[b]块设备文件block；
+[p]管道文件；
+</code></pre><blockquote>
+<ul>
+<li>第一个三位：所属主权限即拥有者</li>
+<li>第二个三位：所属组权限（—表示没有任何权限）</li>
+<li>第三个三位：不同组权限</li>
+</ul>
+</blockquote>
+<pre><code>其中r[4]表示可读、w[2]表示可写、x[1]表示可执行 [-]表示无任何权限；
+</code></pre><blockquote>
+<ul>
+<li>3：表示文件的连接数</li>
+</ul>
+</blockquote>
+<pre><code>第一个xiaoi：文件[文件夹]的所属主（即拥有者）；
+第二个big：文件[文件夹]的所属组
+</code></pre><h3 id="用户的配置文件相关解释（-etc-passwd"><a href="#用户的配置文件相关解释（-etc-passwd" class="headerlink" title="用户的配置文件相关解释（/etc/passwd)"></a>用户的配置文件相关解释（/etc/passwd)</h3><blockquote>
+<ul>
+<li>Xiaobai :x:501:501::/home/xiaobai:/bin/bash<br>Xiaobai：用户名；      X：表示加密；      第一个501：表示用户id；</li>
+<li>Colors:x:500:apple      colors：组名；      X：表示加密；<br>500：表示组id；      apple：该组关联的用户</li>
+</ul>
+</blockquote>
+<h3 id="针对用户的操作"><a href="#针对用户的操作" class="headerlink" title="针对用户的操作"></a>针对用户的操作</h3><pre><code>|   命令  | 说明  |
+</code></pre><p>| :—— |  :—–   |<br>|  useradd 用户名 |创建一个新的用户|<br>|  useradd -u 666 用户名  | 创建一个ID号为666的新用户          |<br>|  useradd -p 密码 用户名 | 创建用户，并一同创建密码         |<br>|  useradd -g 组名 用户名 | 创建用户并加入组（原组不存在，改加入新组） |<br>|  useradd -G 组名 用户名|创建用户并加入组（原组存在，并加入新组）      |<br>|          |<br>| Usermod -g 组号 用户名|  更改用户对应的主组   |<br>|  usermod -l 新名 旧名    |   给用户改名                 |<br>|  Usermod –L 用户名      |   锁住用户                     |<br>|   Usermod –U 用户名     |解锁用户|<br>|userdel 用户名             |删除用户，但不删除用户自家目录|<br>|userdel -rf 用户名         |删除用户，并删除用户自家目录 |</p>
+<h3 id="用户组相关命令"><a href="#用户组相关命令" class="headerlink" title="用户组相关命令"></a>用户组相关命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">groups 用户名</td>
+<td style="text-align:left">查看用户所属组</td>
+</tr>
+<tr>
+<td style="text-align:left">Groupadd 组名</td>
+<td style="text-align:left">创建一个新的组</td>
+</tr>
+<tr>
+<td style="text-align:left">groupdel组名</td>
+<td style="text-align:left">删除组（该组是用户的主组的，则必须先删除用户对该组的关联）</td>
+</tr>
+<tr>
+<td style="text-align:left">groupmod –n新用户名 老用户名</td>
+<td style="text-align:left">为组改名</td>
+</tr>
+<tr>
+<td style="text-align:left">groupmod –g 501 组名</td>
+<td style="text-align:left">改变组GID</td>
+</tr>
+<tr>
+<td style="text-align:left">gpasswd -d 用户名 组名</td>
+<td style="text-align:left">把用户从组中删除</td>
+</tr>
+<tr>
+<td style="text-align:left">gpasswd -a 用户名 组名</td>
+<td style="text-align:left">增加用户到组</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> 用户组的概念：一组具有相同特征（权限）的用户的集合</p>
+<h3 id="针对文件-文件夹-的权限设置"><a href="#针对文件-文件夹-的权限设置" class="headerlink" title="针对文件[文件夹]的权限设置"></a>针对文件[文件夹]的权限设置</h3><hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Chmod 715 文件[文件夹]名</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">7拥有者的权限4+2+1</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">1同组的权限1</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">5不同组的权限4+1</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">4[r]可读权限、2[w]可写权限、1[x]可执行权限</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">chmod u=r+w+x,g=r+x,o=r</th>
+<th style="text-align:left">文件[文件夹]名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">u拥有者；g所属组；o不同组；</td>
+<td style="text-align:left">“+”：添加权限；“-”：撤销权限；</td>
+</tr>
+<tr>
+<td style="text-align:left">1）同时给u\g\o赋权，用逗号隔开；</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">2）如果一个文件夹能够可访问的话，；</td>
+<td style="text-align:left">那么文件夹一定要具有可读可执行的权限</td>
+</tr>
+<tr>
+<td style="text-align:left">3）每次添加的权限都会覆盖原有的权限；</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>更改文件[文件夹]的所属主：chown  所属主  指定的文件</p>
+<p>更改文件[文件夹]的所属组：Chgrp  所属组 文件</p>
+<h3 id="Linux-中各种颜色代表含义（-etc-dir-colors）"><a href="#Linux-中各种颜色代表含义（-etc-dir-colors）" class="headerlink" title="Linux 中各种颜色代表含义（/etc/dir_colors）"></a>Linux 中各种颜色代表含义（/etc/dir_colors）</h3><ol>
+<li>深蓝色   文件夹</li>
+<li>绿色   可执行文件</li>
+<li>白色    普通文件</li>
+<li>靛蓝色    软链接文件</li>
+<li>橙色    设备文件</li>
+<li>红色     压缩文件</li>
+<li>红底白字    无效文件</li>
+<li>可自定义颜色</li>
+</ol>
+<hr>
+<p>链接：硬链接和软链接 </p>
+<p>硬链接hard link    ln 文件路径 目标文件路径 </p>
+<p>软链接symbolic link    ln -s文件绝对路径 目标文件绝对路径 </p>
+<p>两者区别<br>1）生成的硬链接是普通文件（白色），软链接是链接文件（靛蓝色）； </p>
+<p>2）创建软链接时，源文件路径一定要为绝对路径； </p>
+<p>3）如果源文件被删除，则软链接变成无效文件</p>
+<hr>
+<p>Wc 文件名  获取文件包含的行数、单词数、字节数 </p>
+<p>Head    获取头部的相应数据； </p>
+<p>Head 文件名默认获取文件的前10行内容； </p>
+<p>Head –n 2 文件名：获取文件的前两行内容； </p>
+<p>Head –c 2 文件名：获取文件的前两个字符； </p>
+<p>Tail    获取尾部的相应数据； </p>
+<p>Tail 文件名默认获取文件的后10行内容； </p>
+<p>Cut –c 10 文件名   获取文件的每行的第10个字符；</p>
+<hr>
+<p>Linux中简单命令 </p>
+<p>Date    获取当前系统时间 </p>
+<p>Date –s“ 09/15/2015 12:30:00”：更改时间；注意 </p>
+<p>Cal 年份  查看某年的日历 </p>
+<p>Bc  进入计算状态； </p>
+<p>Quit    退出计算状态；</p>
+<hr>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p>==重定向覆盖==（&gt;）表示对文件的覆盖：cat a.txt&gt;/root/ceshi.txt（将前面的结果覆盖目标文件） </p>
+<p>==重定向追加==（&gt;&gt;）表示对文件的追加；（即：将前面的结果追加至目标文件中）</p>
+<p>举例：截取源文件的第二行内容追加至另一个文件中： </p>
+<p>head –n 2 a.txt|tail –n 1&gt;&gt;/home/b.txt</p>
+<hr>
+<h3 id="查看ip：ifconfig"><a href="#查看ip：ifconfig" class="headerlink" title="查看ip：ifconfig"></a>查看ip：ifconfig</h3><p>配置ip三种方式：</p>
+<ol>
+<li>临时ip：输入ifconfig  eth0 具体ip（举例：ifconfig eth0 192.168.5.2）</li>
+<li>永久ip：输入setup回车；返回安装软件时的配置界面，选择network configuration，按提示完成ip设置；</li>
+<li>永久ip：更改配置文件/etc/sysconfig/network-scripts/ifcfg-eth0：<br>BOOTPROTO=NONE/STATIC;<br>IPADDR=192.168.5.2<br>NETMASK=255.255.255.0<br>GATEWEY=192.168.5.1<br>注意：如果需要使用永久ip，必须重启网络服务；<br>service network restart（启动网卡）；<br>service network stop（禁用网卡，即停止网络服务）；<br>service network status（查看网络状态）；</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class=" fa fa-paw "> </i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="Yujian Zhong 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="Yujian Zhong 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/软件测试/" rel="tag"># 软件测试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/28/原-Microsoft-SQL-Server学习（三）/" rel="next" title="[原]Microsoft SQL Server学习（三）">
+                <i class="fa fa-chevron-left"></i> [原]Microsoft SQL Server学习（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/30/原-Linux-学习（三）/" rel="prev" title="[原]Linux 学习（三）">
+                [原]Linux 学习（三） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header1.jpg"
+                alt="Yujian Zhong" />
+            
+              <p class="site-author-name" itemprop="name">Yujian Zhong</p>
+              <p class="site-description motion-element" itemprop="description">Tester</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/tags.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux相关命令"><span class="nav-number">1.</span> <span class="nav-text">Linux相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对文件、文件夹的操作"><span class="nav-number">2.</span> <span class="nav-text">针对文件、文件夹的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的详细信息"><span class="nav-number">3.</span> <span class="nav-text">文件的详细信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户的配置文件相关解释（-etc-passwd"><span class="nav-number">4.</span> <span class="nav-text">用户的配置文件相关解释（/etc/passwd)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对用户的操作"><span class="nav-number">5.</span> <span class="nav-text">针对用户的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户组相关命令"><span class="nav-number">6.</span> <span class="nav-text">用户组相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对文件-文件夹-的权限设置"><span class="nav-number">7.</span> <span class="nav-text">针对文件[文件夹]的权限设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-中各种颜色代表含义（-etc-dir-colors）"><span class="nav-number">8.</span> <span class="nav-text">Linux 中各种颜色代表含义（/etc/dir_colors）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向"><span class="nav-number">9.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看ip：ifconfig"><span class="nav-number">10.</span> <span class="nav-text">查看ip：ifconfig</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yujian Zhong</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  Number of visitors to the station:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

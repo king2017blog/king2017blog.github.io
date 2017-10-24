@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软件测试,项目进度,质量管理,成本的控制," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="King's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="项目进度和质量管理     项目的进度管理是一门艺术，是一个动态的过程，需要不断调度、协调，保证项目的均衡发 展，实现项目整体的动态平衡。项目开始前的计划，对任务的测试需求有一个大体的认识， 但深度不够，进度表可能只是一个时间上的框架，其中一定程度上是靠计划制定者的经验来把握 的。随着时间的推移、测试的不断深入，对任务会有进一步的认识，对很多问题都不再停留在比较 粗的估算上，项目进度表会变得越来越">
+<meta name="keywords" content="软件测试,项目进度,质量管理,成本的控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试进度和成本的控制">
+<meta property="og:url" content="http://yoursite.com/2017/10/13/测试进度和成本的控制/index.html">
+<meta property="og:site_name" content="King&#39;s Blog">
+<meta property="og:description" content="项目进度和质量管理     项目的进度管理是一门艺术，是一个动态的过程，需要不断调度、协调，保证项目的均衡发 展，实现项目整体的动态平衡。项目开始前的计划，对任务的测试需求有一个大体的认识， 但深度不够，进度表可能只是一个时间上的框架，其中一定程度上是靠计划制定者的经验来把握 的。随着时间的推移、测试的不断深入，对任务会有进一步的认识，对很多问题都不再停留在比较 粗的估算上，项目进度表会变得越来越">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20171009180137152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20171009180241482?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2017-10-19T11:51:55.166Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="测试进度和成本的控制">
+<meta name="twitter:description" content="项目进度和质量管理     项目的进度管理是一门艺术，是一个动态的过程，需要不断调度、协调，保证项目的均衡发 展，实现项目整体的动态平衡。项目开始前的计划，对任务的测试需求有一个大体的认识， 但深度不够，进度表可能只是一个时间上的框架，其中一定程度上是靠计划制定者的经验来把握 的。随着时间的推移、测试的不断深入，对任务会有进一步的认识，对很多问题都不再停留在比较 粗的估算上，项目进度表会变得越来越">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171009180137152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/13/测试进度和成本的控制/"/>
+
+
+
+
+
+  <title>测试进度和成本的控制 | King's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">King's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/source/404" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-404.html"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/测试进度和成本的控制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yujian Zhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="King's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">测试进度和成本的控制</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T11:26:18+08:00">
+                2017-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/测试经验文/" itemprop="url" rel="index">
+                    <span itemprop="name">测试经验文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+      
+      
+
+      
+        <p>项目进度和质量管理</p>
+<pre><code>    项目的进度管理是一门艺术，是一个动态的过程，需要不断调度、协调，保证项目的均衡发
+展，实现项目整体的动态平衡。项目开始前的计划，对任务的测试需求有一个大体的认识，
+但深度不够，进度表可能只是一个时间上的框架，其中一定程度上是靠计划制定者的经验来把握
+的。随着时间的推移、测试的不断深入，对任务会有进一步的认识，对很多问题都不再停留在比较
+粗的估算上，项目进度表会变得越来越详细、越准确。
+
+    项目的进度管理主要通过里程碑、关键路径的控制并借助工具来实现，同时要把握好进度与质
+量、成本的关系，以及充分了解进度的数量和质量的双重特性。
+项目进度管理是根据工程项目的进度目标，编制经济合理的进度计划，
+并据以检查工程项目进度计划的执行情况，若发现实际执行情况与计划进度不一致，就及时分析原因，
+并采取必要的措施对原工程进度计划进行调整或修正的过程。工程项目进度管理的目的就是为了实现最优工期，
+多快好省地完成任务。
+
+   项目进度管理是项目管理的一个重要方面，它与项目投资管理、项目质量管理等同为项目管理的
+重要组成部分。它是保证项目如期完成或合理安排资源供应，节约工程成本的重要措施之一。
+</code></pre><a id="more"></a>
+<p>项目进度管理工具</p>
+<blockquote>
+<ul>
+<li><p>日事清是项目进度管理工具。</p>
+</li>
+<li><p>时间表是项目进度管理工具。</p>
+</li>
+</ul>
+</blockquote>
+<p>1.进度的数量和质量的双重特性</p>
+<pre><code>   任何一项工作，最开始总是很容易看到进度，就比如盖房子，从无到有，变化是很明显的。可是
+越到后来，它的进度越来越不明显。软件测试也是如此，开始测试之初，Bug比较容易发现，但测试
+的进展并不是按Bug的数量来计算的，越到后面，Bug越来越难发现。要提高测试进度的质量，将严
+重的、关键的问题在第一时间发现出来，这样才不至于在最后阶段使得开发人员要对代码做大规模
+的变动，无法保证测试的时间，从而影响软件的质量。这就是测试项目进度的数量和质量的双重特
+性，我们在关注进度的同时要把握好这两个特性，在注重进度速度的同时，还要看进度前期的质量。 
+</code></pre><p>2.测试进度的管理方法</p>
+<pre><code>   首先，尽量利用历史数据，从以前完成过的项目来进行类比分析，以确定质量和进度所存在的某
+种数量关系，来控制进度和管理质量。可以采用对进度管理计划添加质量参数的方法，也就是通过
+参数调整进度和质量的关系。
+
+   其次，可以采用测试项目进度的度量方法：测试进度S曲线法和缺陷跟踪曲线法。在进度压力之
+下，被压缩的时间通常是测试时间，这导致实际的进度随着时间的推移，与最初制定的计划相差越来越远。
+而如果有了正式的度量方法，这种情况就很难出现，因为在其出现之前就有可能采取了行动。
+</code></pre><p>测试进度S曲线法</p>
+<pre><code>   概念：以横坐标为表示时间，纵坐标表示累计完成任务量，绘制一条按计划时间累计完成任务量的S曲线；
+然后将工程项目实施过程中各检查时间实际累计完成任务量的S曲线也绘制在同一坐标系中，进行实际进度
+与计划进度比较的一种方法。
+</code></pre><p>（一）S曲线的绘制方法</p>
+<p><span style="color:rgb(51,51,51)">&nbsp;<img src="http://img.blog.csdn.net/20171009180137152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></p>
+<blockquote>
+<ul>
+<li>确定单位时间计划完成任务量</li>
+<li>计算不同时间累计完成任务量</li>
+<li>根据累计完成任务量绘制S曲线</li>
+</ul>
+</blockquote>
+<p>（二）实际进度与计划进度的比较</p>
+<p>1.工程项目实际进展状况</p>
+<p>　  如果工程实际进展点落在计划S曲线左侧，表明此时实际进度比计划进度超前，如图中的a点；<br>　　如果工程实际进展点落在S计划曲线右侧，表明此时实际进度拖后，如图中的b点；<br>　　如果工程实际进展点正好落在计划S曲线上，则表示此时实际进度与计划进度一致。</p>
+<p>2.工程项目实际进度超前或拖后的时间</p>
+<p>　　在S曲线比较图中可以直接读出实际进度比计划进度超前或拖后的时间（横坐标）。<br>　　如图所示，△Ta：表示Ta时刻实际进度超前的时间；△Tb表示Tb时刻实际进度拖后的时间。</p>
+<p>3.工程项目实际超额或拖欠的任务量</p>
+<p>　　在S曲线比较图中也可直接读出实际进度比计划进度超额或拖欠的任务量（纵坐标）。<br>4.后期工程进度预测</p>
+<p>　　如果后期工程按原计划速度进行，则可做出后期工程计划S曲线如图中虚线所示，从而可以确定工期拖延预测值△T。</p>
+<p>软件测试缺陷跟踪的两个经典分析模型</p>
+<pre><code>    缺陷跟踪过程是软件工程中的一个极其重要的过程。本文介绍了如何使用两个经典的分析模型，
+来控制缺陷跟踪的过程。这两个模型叫做《活动bug走势图》、《bug打开关闭图》。
+另外，在文章中还会提到两个概念：“bug收敛”、“零bug反弹”，具体含义会在介绍中说明。
+
+
+  活动bug走势曲线上的每个点，表示当天软件中还存在多少个活动bug。这个数字越大，说明软件的
+质量越差。而bug打开关闭图中，每天都会有红色、蓝色共两根柱子，表示当天打开、关闭bug的次
+数，如果当天这两个数字都很高，说明bug的处理非常活跃，软件非常不稳定。注意，活动bug的单
+位是“个”，而打开关闭的单位是“次”，因此我们用线图和柱图分别表示。
+</code></pre><p>Bug曲线的三个阶段</p>
+<pre><code>   阶段1：测试组对系统开始进行全面测试，打开bug的速度明显高于关闭bug的速度，活动bug数
+急速上升，当完成了全部测试用例的执行时，活动bug数达到最大;
+
+   阶段2：开发组全力修复bug，测试组一边验证bug，一边小范围的回归测试，验证bug的周边功
+能。这时，关闭bug的速度高于打开bug的速度，活动bug数回落。当活动bug数刚开始回落的时候，
+称为“bug收敛”。最终，活动bug会降到一个很低的位置，有时，会达到“零bug ”，不过，这并不
+说明项目可以发布。
+
+   阶段3：测试组再次对软件系统进行一次完整的回归测试。在这个过程，还会打开一些bug，但
+是，数量很少，这称为“零bug反弹”。完成了这一轮回归之后，软件才真正稳定下来，进入发布候选
+过程。
+</code></pre><p>如何检测软件质量是否稳定</p>
+<pre><code>  如果第二阶段已经开始，但是活动bug仍在继续上升，没有回落，说明打开bug速度仍很高，可能是
+第一阶段用例执行还没有完成，或者开发组修复bug速度较低;
+
+如果第二阶段结束，活动bug没有回落到低水平，说明大量的bug还需要修复，软件质量低;
+
+    如果第三阶段，打开、关闭bug的次数很多，说明bug活动频繁，系统稳定性差。
+因此，正常的项目测试应该是，活动bug先上扬，再回落，最后在低位小幅振荡，并且打开关闭次数很少。
+有了这两个分析模型，我们对项目进度得控制，就更有把握了。
+</code></pre><p>bug priority曲线图</p>
+<pre><code>  我们大部分人都知道所有的测试执行完成后，都会有测试报告，而测试报告的一个最关键的因素就
+是bug曲线图，一般都会有2种曲线：一个是open bug数量的曲线。
+
+   另一个是fixed bug 的数量的曲线。同样也要考虑收敛的问题，这里还有一个相关的曲线也是很重
+要的：bug priority曲线图。这里解释下：也就是优先级比较高的bug数量的曲线变化图，一般来说是P1的bug，
+如果更细一点也可以有P2的bug。为什么要有这个曲线图呢?一个最重要的目的就是
+看测试执行后期，也相当于我们第三轮测试的后期出现多一点的P1的bug(或者接近发布的后期)，
+就会对这个质量进行重新评估，也就是会调整计划以及策略去应对这种情况。
+</code></pre><p>bug priority曲线图</p>
+<pre><code>   优先级比较高的bug数量的曲线变化图，一般来说是P1的bug，如果更细一点也可以有P2的bug。
+为什么要有这个曲线图呢?一个最重要的目的就是看测试执行后期，也相当于我们第三轮测试的后期
+出现多一点的P1的bug(或者接近发布的后期)，就会对这个质量进行重新评估，也就是会调整计划
+以及策略去应对这种情况
+</code></pre><p> <span style="font-size:18px">&nbsp;<img src="http://img.blog.csdn.net/20171009180241482?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYxNTUzNDA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></p>
+<p>BUG预防策略</p>
+<pre><code>   BUG预防策略非常简单和容易实现，策略是发现BUG，找出BUG的根源，然后寻找一个方法来预防
+类似的BUG在将来出现。这策略并不需要昂贵的花费，但是却可带来极大的额外价值。
+</code></pre><p>1).BUG记录</p>
+<pre><code>   BUG分析的第一步是记录BUG，值得注意的是记录BUG不应该满足于记录BUG的表面症状。测试的
+一个重要职责就是试图发现BUG的根本原因，在测试时不应将产品看作一个黑盒，而应该像开发人员
+那样了解产品的内在，包括深入源代码，理解产品的设计和实现
+</code></pre><p>2). 利用BUG分析了解开发质量趋势</p>
+<pre><code>   BUG预防分析是整个BUG分析过程的核心。这一阶段总结出的实践可以在更广泛的范围内预防潜在的
+缺陷。由于分析结果的广泛应用性，分析某个具体BUG的投入将很容易被收回。在这个时候，BUG分
+析提供了两个非常重要的参数，一个是缺陷数量的趋势，另一个是缺陷修复的趋势。缺陷趋势就是
+将每月新生成的缺陷数、每月被解决的缺陷数和每月遗留的缺陷数标成一个趋势图表。
+
+    一般在项目的开始阶段发现缺陷数曲线会呈上升趋势，到项目中后期被修复缺陷数曲线会趋于上
+升，而发现缺陷数曲线应总体趋于下降。同时处于OPEN状态的缺陷也应该总体呈下降趋势，到项目
+最后，三条曲线都趋向于零。项目经理可通过持续观察这张图表，确保项目开发健康发展。同时，
+通过分析预测项目测试缺陷趋于零的时间，以制定产品质量验收和发布的时间。
+</code></pre><p>3)发布BUG分析经验,提高团队成员能力</p>
+<pre><code>  BUG分析的价值不仅仅是缺陷的预防，更大的好处是通过记录和分析BUG，项目内的其他开发人员知
+道如何发现类似的错误。所以，我们可以通过某个开发人员产生的一个BUG提高整个项目团队的实践
+经验，而不仅仅是尽快修正它。这样，因为一个缺陷所浪费的时间也可以转化为收益：确保类似的
+错误不会再发生。除了分享项目内的测试知识和经验，BUG分析过程还可以促进开发更好的测试技术
+和工具，从而帮助发现类似的BUG。
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class=" fa fa-paw "> </i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="Yujian Zhong 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="Yujian Zhong 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag"># 软件测试</a>
+          
+            <a href="/tags/项目进度/" rel="tag"># 项目进度</a>
+          
+            <a href="/tags/质量管理/" rel="tag"># 质量管理</a>
+          
+            <a href="/tags/成本的控制/" rel="tag"># 成本的控制</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/08/原-Microsoft-SQL-Server学习（八）-T-SQL/" rel="next" title="[原]Microsoft SQL Server学习（八）--T-SQL">
+                <i class="fa fa-chevron-left"></i> [原]Microsoft SQL Server学习（八）--T-SQL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header1.jpg"
+                alt="Yujian Zhong" />
+            
+              <p class="site-author-name" itemprop="name">Yujian Zhong</p>
+              <p class="site-description motion-element" itemprop="description">Tester</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/tags.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yujian Zhong</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  Number of visitors to the station:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软件测试,风险分析," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="King's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在测试工作中，主要的风险表现有以下几点： （1）需求风险。 对软件需求理解不准确，导致测试范围存在误差，遗漏部分需求或者执行了错误的测试方式；另外需求变更导致测试用例变更，同步时存在误差。   （2）测试用例风险。 测试用例设计不完整，忽视了边界条件、异常处理等情况，用例没有完全覆盖需求；测试用例没有得到全部执行，有些用例被有意或者无意的遗漏；">
+<meta name="keywords" content="软件测试,风险分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转]软件测试常见风险分析">
+<meta property="og:url" content="http://yoursite.com/2017/06/27/转-软件测试常见风险分析/index.html">
+<meta property="og:site_name" content="King&#39;s Blog">
+<meta property="og:description" content="在测试工作中，主要的风险表现有以下几点： （1）需求风险。 对软件需求理解不准确，导致测试范围存在误差，遗漏部分需求或者执行了错误的测试方式；另外需求变更导致测试用例变更，同步时存在误差。   （2）测试用例风险。 测试用例设计不完整，忽视了边界条件、异常处理等情况，用例没有完全覆盖需求；测试用例没有得到全部执行，有些用例被有意或者无意的遗漏；">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-19T12:03:37.182Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[转]软件测试常见风险分析">
+<meta name="twitter:description" content="在测试工作中，主要的风险表现有以下几点： （1）需求风险。 对软件需求理解不准确，导致测试范围存在误差，遗漏部分需求或者执行了错误的测试方式；另外需求变更导致测试用例变更，同步时存在误差。   （2）测试用例风险。 测试用例设计不完整，忽视了边界条件、异常处理等情况，用例没有完全覆盖需求；测试用例没有得到全部执行，有些用例被有意或者无意的遗漏；">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/27/转-软件测试常见风险分析/"/>
+
+
+
+
+
+  <title>[转]软件测试常见风险分析 | King's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">King's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/source/404" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-404.html"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/27/转-软件测试常见风险分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yujian Zhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="King's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[转]软件测试常见风险分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-27T15:27:48+08:00">
+                2017-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/测试经验文/" itemprop="url" rel="index">
+                    <span itemprop="name">测试经验文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+      
+      
+
+      
+        <p><span style="font-size:18px"><span style="color:#009900"><span style="font-family:&quot;Helvetica Neue&quot;">在测试工作中，主要的</span><strong><span style="font-family:Helvetica Neue">风险表现</span></strong><span style="font-family:&quot;Helvetica Neue&quot;">有以下几点：</span></span></span></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">（</span>1）</span><strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">需求风险</span></span></strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">。</span></span></span></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="white-space:pre"></span>对软件需求理解不准确，导致测试范围存在误差，遗漏部分需求或者执行了错误的测试方式；另外需求变更导致测试用例变更，同步时存在误差。</span></span></span></p>
+<p><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="font-size:18px"></span></span></span></p>
+<p></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">（</span>2）</span><strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">测试用例风险</span></span></strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">。</span></span></span></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="white-space:pre"></span>测试用例设计不完整，忽视了边界条件、异常处理等情况，用例没有完全覆盖需求；测试用例没有得到全部执行，有些用例被有意或者无意的遗漏；</span></span></span><br><a id="more"></a><br><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="font-size:18px"></span></span></span></p>
+<p></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">（</span>3）</span><strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">缺陷风险</span></span></strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">。某些缺陷偶发，难以重现，容易被遗漏；</span></span></span></p>
+<p><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="font-size:18px"></span></span></span></p>
+<p></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">（</span>4）</span><strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">代码质量风险</span></span></strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">。</span></span></span></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="white-space:pre"></span>软件代码质量差，导致缺陷较多，容易出现测试的遗漏；</span></span></span></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"></span></span></span></p>
+<p></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">（</span>5）测试环境风险。有些情况下测试环境与生产环境不能完全一致，导致测试结果存在误差；</span></span></p>
+<p><span style="color:rgb(62,62,62)"><span style="font-size:18px"></span></span></p>
+<p></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">（</span>6）</span><strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">测试技术风险</span></span></strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">。</span></span></span></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="white-space:pre"></span>某些项目存在技术难度，测试能力和水平导致测试进展缓慢，项目延期；</span></span></span></p>
+<p><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="font-size:18px"></span></span></span></p>
+<p></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">（</span>7）</span><strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">回归测试风险</span></span></strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">。</span></span></span></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="white-space:pre"></span>回归测试一般不运行全部测试用例，可能存在测试不完全；</span></span></span></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"></span></span></span></p>
+<p></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">（</span>8）沟通协调风险。测试过程中涉及的角色较多，存在不同人员、角色之间的沟通、协作，难免存在误解、沟通不畅的情况，导致项目延期；</span></span></p>
+<p><span style="color:rgb(62,62,62)"><span style="font-size:18px"></span></span></p>
+<p></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">（</span>9）</span><strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">其它不可预计风险</span></span></strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">。</span></span></span></p>
+<p><span style="font-size:18px"><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="white-space:pre"></span>一些突发状况、不可抗力等也构成风险因素，且难以预估和避免。</span></span></span></p>
+<p><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="font-size:18px"></span></span></span></p>
+<p></p>
+<p><span style="font-size:18px; color:rgb(62,62,62)"><span style="font-family:Helvetica Neue"><span style="white-space:pre"></span>以上是测试过程中可能发生的风险，其中有的风险是难以避免的，如缺陷风险等。有的风险从理论上可以避免，但实际操作过程中出于时间和成本的考虑，也难以完全回避，如回归测试风险等。</span></span><span style="font-size:18px"><strong><span style="color:rgb(62,62,62)"><span style="font-family:Helvetica Neue">对于难以避免的风险，我们的目标是将风险降到最低水平。</span></span></strong></span></p>
+<p><span style="font-size:18px">&nbsp;</span></p>
+
+      
+    </div>
+    
+    
+    
+
+<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class=" fa fa-paw "> </i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="Yujian Zhong 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="Yujian Zhong 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag"># 软件测试</a>
+          
+            <a href="/tags/风险分析/" rel="tag"># 风险分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/30/转-提高软件测试能力的建议/" rel="prev" title="[转]提高软件测试能力的建议">
+                [转]提高软件测试能力的建议 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header1.jpg"
+                alt="Yujian Zhong" />
+            
+              <p class="site-author-name" itemprop="name">Yujian Zhong</p>
+              <p class="site-description motion-element" itemprop="description">Tester</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/tags.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yujian Zhong</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  Number of visitors to the station:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

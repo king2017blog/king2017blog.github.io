@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软件测试,SQLServer,数据库,约束," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="King's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="SQLServer - 约束主要是为了保证数据库中的数据一致性、有效性、准确性， 从而提高了数据库中数据的正确性">
+<meta name="keywords" content="软件测试,SQLServer,数据库,约束">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原]Microsoft SQL Server学习（四）--约束">
+<meta property="og:url" content="http://yoursite.com/2017/10/02/原-Microsoft-SQL-Server学习（四）-约束/index.html">
+<meta property="og:site_name" content="King&#39;s Blog">
+<meta property="og:description" content="SQLServer - 约束主要是为了保证数据库中的数据一致性、有效性、准确性， 从而提高了数据库中数据的正确性">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-19T11:57:21.243Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[原]Microsoft SQL Server学习（四）--约束">
+<meta name="twitter:description" content="SQLServer - 约束主要是为了保证数据库中的数据一致性、有效性、准确性， 从而提高了数据库中数据的正确性">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/02/原-Microsoft-SQL-Server学习（四）-约束/"/>
+
+
+
+
+
+  <title>[原]Microsoft SQL Server学习（四）--约束 | King's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/121cd7cbdc3e4855075ea8b558508b91ac463ac2/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">King's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/source/404" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-404.html"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/02/原-Microsoft-SQL-Server学习（四）-约束/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yujian Zhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="King's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[原]Microsoft SQL Server学习（四）--约束</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-02T15:58:57+08:00">
+                2017-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+      
+      
+
+      
+        <h2 id="SQLServer-约束"><a href="#SQLServer-约束" class="headerlink" title="SQLServer - 约束"></a>SQLServer - 约束</h2><pre><code>主要是为了保证数据库中的数据一致性、有效性、准确性，
+从而提高了数据库中数据的正确性
+</code></pre><a id="more"></a>
+<h3 id="一、约束的分类"><a href="#一、约束的分类" class="headerlink" title="一、约束的分类"></a>一、约束的分类</h3><h4 id="在SQLserver中，约束分三种不同类型"><a href="#在SQLserver中，约束分三种不同类型" class="headerlink" title="在SQLserver中，约束分三种不同类型"></a>在SQLserver中，约束分三种不同类型</h4><blockquote>
+<ul>
+<li>1.实体约束       实提约束是关于行的。比如某一行的值就不允许出现在其他行，比如主键</li>
+<li>2.域约束       域约束是关于列的。对于所有行，某一列是有那些约束，比如check约束</li>
+<li>3.参照完整性约束       如果某列的值必须与其他列匹配，就需要一个参照完整性约束，比如外键</li>
+</ul>
+</blockquote>
+<h3 id="二、约束命名"><a href="#二、约束命名" class="headerlink" title="二、约束命名"></a>二、约束命名</h3><pre><code>SQLServer在我们不提供名称时，会自动创建名称，但是由系统自动创建的名称并不是特别有用。
+为了能够一眼看上去就知道这个约束是用来干什么的，我们应该使用一种简单明了的短语来进行命名。
+例如要确保某一列电话号码格式正确的约束，我们可以使用命名CK_Customers_PhoneNo这样的短语来命名。
+</code></pre><h3 id="三、键约束"><a href="#三、键约束" class="headerlink" title="三、键约束"></a>三、键约束</h3><blockquote>
+<ul>
+<li>主键约束（Primary Key constraint）：要求主键列数据唯一，并且不允许为空。</li>
+<li>唯一约束（Unique constraint）：要求该列唯一，允许为空，但只能出现一个空值。</li>
+<li>检查约束（Check constraint）：某列取值范围限制，格式限制等，如有关年龄、邮箱（必须有@）的约束。</li>
+<li>默认约束（Default constraint）：某列的默认值，如在数据库里有一项数据很多重复，可以设为默认值。</li>
+<li>外键约束（Foreign Key constraint）：用于在两个表之间建立关系，需要指定引用主表的哪一列。</li>
+<li>*不为空约束（Not Null）</li>
+</ul>
+</blockquote>
+<h4 id="添加语法："><a href="#添加语法：" class="headerlink" title="添加语法："></a>添加语法：</h4><pre><code>    ALTER TABLE 表名
+    ADD CONSTRAINT 约束名 约束 类型 具体的约束说明
+    上述语法表示修改某个表，添加某个约束。其中，约束名的命名规则推荐
+采用“约束类型_约束字段”这样的形式。
+</code></pre><h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><pre><code>添加主键约束（将stuNo设为主键）：
+ALTER TABLE stuInfo
+ADD CONSTRAINT PK_stuNo PRIMARY KEY (stuNo)
+
+添加唯一约束（身份证号唯一）：
+ALTER TABLE stuInfo
+ADD CONSTRAINT UQ_stuID UNIQUE (stuID)
+
+添加默认约束（如果地址不填，默认为“地址不详”）：
+ALTER TABLE stuInfo
+ADD CONSTRAINT DF_stuAddress DEFAULT (&apos;地址不详&apos;) FOR stuAddress
+
+添加检查约束（要求年龄只能在 15~40岁之间）
+ALTER TABLE stuInfo
+ADD CONSTRAINT CK_stuAge CHECK(stuAge BETWEEN 15 AND 40)
+
+添加外键约束（主表 stuInfo 和从表 stuGrade 建立关系，关联字段为 stuNo ）：
+ALTER TABLE stuGrade
+ADD CONSTRAINT FK_stuNo
+FOREIGN KEY (stuNo) REFERENCES stuInfo(stuNo)
+GO
+
+
+* * *
+</code></pre><h4 id="删除语法："><a href="#删除语法：" class="headerlink" title="删除语法："></a>删除语法：</h4><pre><code>ALTER TABLE 表名
+DROP CONSTRAINT 约束名
+</code></pre><h4 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h4><pre><code>删除stuInfo表中地址默认约束的语句：
+ALTER TABLE stuInfo
+DROP CONSTRAINT DF_stuAddress
+</code></pre><h4 id="删除外键约束注意事项："><a href="#删除外键约束注意事项：" class="headerlink" title="删除外键约束注意事项："></a>删除外键约束注意事项：</h4><p>对于存在外键约束的表，如果进行删除非空的外键，可能会出现错误。</p>
+<blockquote>
+<ul>
+<li>如果在 FOREIGN KEY 约束的列中输入非 NULL 值，则此值必须在被引用的列中存在，否则将返回违反外键约束的错误信息。</li>
+<li>FOREIGN KEY 约束应用于前面所讲的列，除非指定了源列。</li>
+<li>FOREIGN KEY 约束仅能引用位于同一服务器上的同一数据库中的表。数据库间的引用完整性必须通过触发器实现。有关更多信息，请参见 CREATE TRIGGER。</li>
+<li>FOREIGN KEY 可以引用同一表中的其它列（自引用）。</li>
+<li>列级 FOREIGN KEY 约束的 REFERENCES 子句仅能列出一个引用列，且该列必须与定义约束的列具有相同的数据类型。</li>
+<li>表级 FOREIGN KEY 约束的 REFERENCES 子句中引用列的数目必须与约束列列表中的列数相同。每个引用列的数据类型也必须与列表中相应列的数据类型相同。</li>
+<li>如果 timestamp 类型的列是外键或被引用键的一部分，则不能指定CASCADE。</li>
+<li>可以在相互间具有引用关系的表上组合使用 CASCADE 和 NO ACTION。如果 SQL Server 遇到 NO ACTION，将终止执行语句并回滚相关的 CASCADE 操作。当 DELETE 语句导致 CASCADE 和 NO ACTION 组合操作时，在 SQL Server 检查 NO ACTION 操作之前将执行所有 CASCADE 操作。</li>
+<li>一个表最多可包含 253 个 FOREIGN KEY 约束。</li>
+<li>对于临时表不强制 FOREIGN KEY 约束。</li>
+<li>每个表在其 FOREIGN KEY 约束中最多可以引用 253 个不同的表。</li>
+<li>FOREIGN KEY 约束只能引用被引用表的 PRIMARY KEY 或 UNIQUE 约束中的列或被引用表上 UNIQUE INDEX 中的列。</li>
+</ul>
+</blockquote>
+<pre><code>* * *
+</code></pre><p>   –创建不为空约束的方法一<br>alter table class_A<br>alter column name varchar(50) not null</p>
+<p>–创建不为空约束的方法二<br>create table test_520shq(<br>id int,<br>manager_name varchar(50) not null,<br>phoneNo int<br>)</p>
+<p>验证约束: insert into test_520shq values(1,null,’552222’)</p>
+<hr>
+<p>drop table test_520shq_D</p>
+<p>select * from test_520shq</p>
+<p>create table test_520shq_A(<br>id int,<br>java_name varchar(50),<br>phoneNo int<br>)</p>
+<p>–创建主键约束方法一<br>alter table test_520shq_A<br>alter column id int not null<br>alter table test_520shq_A<br>add constraint pk_test520shqID primary key(id)</p>
+<p>–创建主键约束方法二<br>create table test_520shq_B(<br>id int primary key,<br>net_name varchar(50),<br>phoneNo int<br>)</p>
+<p>–创建主键约束方法三<br>create table test_520shq_C(<br>id int,<br>net_name varchar(50),<br>phoneNo int,<br>constraint pk_id primary key(id)<br>)</p>
+<p>–查询约束<br>exec sp_helpconstraint test_520shq_C</p>
+<p>–删除约束<br>alter table test_520shq_C<br>drop constraint pk_id</p>
+<p>–检查约束方法一<br>create table test_520shq_D(<br>id int primary key,<br>name varchar(50),<br>phone_No bigint check (phone_No&gt;9999999999 and phone_No&lt;100000000000)<br>)</p>
+<p>验证约束: insert into test_520shq_D values (1,’tom’,138877905089)</p>
+<p>–检查约束方法二<br>create table test_520shq_E(<br>id int primary key,<br>name varchar(50),<br>phone_No bigint<br>)</p>
+<p>alter table test_520shq_E<br>add constraint ck_phoneNo check(phone_No&gt;9999999999 and phone_No&lt;100000000000)</p>
+<p>execute sp_helpconstraint test_520shq_E</p>
+<p>alter table test_520shq_E<br>drop constraint ck_phoneNo</p>
+<p>drop table test_520shq_E</p>
+<p>–检查约束方法三<br>create table test_520shq_E(<br>id int primary key,<br>name varchar(50),<br>phone_No bigint,<br>constraint ck_phone_No check(phone_No&gt;9999999999 and phone_No&lt;100000000000)<br>)</p>
+<p>–创建唯一约束方法一<br>create table test_520shq_F(<br>logo_name varchar(50) unique(logo_name)<br>)</p>
+<p>验证约束:insert into test_520shq_F values (null)<br>–检查约束方法二<br>create table test_520shq_E(<br>id int primary key,<br>name varchar(50),<br>phone_No bigint<br>)</p>
+<p>alter table test_520shq_E<br>add constraint ck_phoneNo check(phone_No&gt;9999999999 and phone_No&lt;100000000000)</p>
+<p>execute sp_helpconstraint test_520shq_E</p>
+<p>alter table test_520shq_E<br>drop constraint ck_phoneNo</p>
+<p>drop table test_520shq_E</p>
+<p>–检查约束方法三<br>create table test_520shq_E(<br>id int primary key,<br>name varchar(50),<br>phone_No bigint,<br>constraint ck_phone_No check(phone_No&gt;9999999999 and phone_No&lt;100000000000)<br>)</p>
+<p>–创建唯一约束方法一<br>create table test_520shq_F(<br>logo_name varchar(50) unique(logo_name)<br>)</p>
+<p>验证约束:insert into test_520shq_F values (null)</p>
+<p>–创建唯一约束方法二<br>alter table goods<br>add constraint uq_goodsprice unique(goods_price)</p>
+<p>–创建唯一约束方法三<br>create table student3(<br>student3_age int,<br>student3_name varchar(10),<br>constraint uq_student3_age unique(student3_age)</p>
+<p>–默认约束<br>–第一种方法<br>create table student4(<br>student_sex char(4) default ‘男’<br>)<br>验证: insert into student3 values (default)<br>–第二种方法<br>alter table goodschart<br>add constraint de_goodsprice default(500) for goodsprice</p>
+<p>–外键约束<br>–在创建外键时必须分析出参照表和被参照表<br>create table student10(<br>student_id int,<br>student_name varchar (10),<br>student_age int<br>)<br>insert into student10 values(3,’张三’,12)<br>create table score(<br>student_id int,<br>score int<br>)</p>
+<p>外键加在参照表上<br>在创建外键时，必须要求被参照表中的被参照字段设置主键<br>被参照表中的student_id必须添加主键<br>添加外键语法:<br>方法一:不为空约束加上主键约束加上如下约束<br>alter table参照表名<br>add constraint 约束名 foreign key（参照表的字段名）references 被参照表<br>注意：当使用该种方法进行添加进行添加外键时，<br>必须要求被参照表中的参照字段设置主键</p>
+<p>alter table student10<br>alter column student_id int not null<br>alter table student10<br>add constraint pk_studentid1 primary key(student10_id)<br>alter table score<br>add constraint fk_studentid foreign key(student_id)references student10</p>
+<p>方法2:<br>creat table 参照表名<br>（<br>字段名（被参照表得） foreign key references 被参照表名<br>）<br>方法3：<br>create table 参照表名<br>（<br>字段名<br>Constraint fk_约束名 foreign key(字段名)<br>）</p>
+
+      
+    </div>
+    
+    
+    
+
+<div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class=" fa fa-paw "> </i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/weixin.png" alt="Yujian Zhong 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.png" alt="Yujian Zhong 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag"># 软件测试</a>
+          
+            <a href="/tags/SQLServer/" rel="tag"># SQLServer</a>
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+            <a href="/tags/约束/" rel="tag"># 约束</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/30/原-Linux-学习（四）/" rel="next" title="[原]Linux 学习（四）">
+                <i class="fa fa-chevron-left"></i> [原]Linux 学习（四）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/08/原-Microsoft-SQL-Server学习（五）-操作符聚合函数/" rel="prev" title="[原]Microsoft SQL Server学习（五）--操作符聚合函数">
+                [原]Microsoft SQL Server学习（五）--操作符聚合函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header1.jpg"
+                alt="Yujian Zhong" />
+            
+              <p class="site-author-name" itemprop="name">Yujian Zhong</p>
+              <p class="site-description motion-element" itemprop="description">Tester</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/tags.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQLServer-约束"><span class="nav-number">1.</span> <span class="nav-text">SQLServer - 约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、约束的分类"><span class="nav-number">1.1.</span> <span class="nav-text">一、约束的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在SQLserver中，约束分三种不同类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">在SQLserver中，约束分三种不同类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、约束命名"><span class="nav-number">1.2.</span> <span class="nav-text">二、约束命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、键约束"><span class="nav-number">1.3.</span> <span class="nav-text">三、键约束</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加语法："><span class="nav-number">1.3.1.</span> <span class="nav-text">添加语法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例："><span class="nav-number">1.3.2.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除语法："><span class="nav-number">1.3.3.</span> <span class="nav-text">删除语法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例：-1"><span class="nav-number">1.3.4.</span> <span class="nav-text">示例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除外键约束注意事项："><span class="nav-number">1.3.5.</span> <span class="nav-text">删除外键约束注意事项：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yujian Zhong</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  Number of visitors to the station:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
