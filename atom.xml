@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://king2017blog.github.io/"/>
   <updated>2017-10-19T11:51:55.166Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://king2017blog.github.io/</id>
   
   <author>
     <name>Yujian Zhong</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>测试进度和成本的控制</title>
-    <link href="http://yoursite.com/2017/10/13/%E6%B5%8B%E8%AF%95%E8%BF%9B%E5%BA%A6%E5%92%8C%E6%88%90%E6%9C%AC%E7%9A%84%E6%8E%A7%E5%88%B6/"/>
-    <id>http://yoursite.com/2017/10/13/测试进度和成本的控制/</id>
+    <link href="https://king2017blog.github.io/2017/10/13/%E6%B5%8B%E8%AF%95%E8%BF%9B%E5%BA%A6%E5%92%8C%E6%88%90%E6%9C%AC%E7%9A%84%E6%8E%A7%E5%88%B6/"/>
+    <id>https://king2017blog.github.io/2017/10/13/测试进度和成本的控制/</id>
     <published>2017-10-13T03:26:18.000Z</published>
     <updated>2017-10-19T11:51:55.166Z</updated>
     
@@ -47,23 +47,23 @@
     
     </summary>
     
-      <category term="测试经验文" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%96%87/"/>
+      <category term="测试经验文" scheme="https://king2017blog.github.io/categories/%E6%B5%8B%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%96%87/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="项目进度" scheme="http://yoursite.com/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/"/>
+      <category term="项目进度" scheme="https://king2017blog.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6/"/>
     
-      <category term="质量管理" scheme="http://yoursite.com/tags/%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/"/>
+      <category term="质量管理" scheme="https://king2017blog.github.io/tags/%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/"/>
     
-      <category term="成本的控制" scheme="http://yoursite.com/tags/%E6%88%90%E6%9C%AC%E7%9A%84%E6%8E%A7%E5%88%B6/"/>
+      <category term="成本的控制" scheme="https://king2017blog.github.io/tags/%E6%88%90%E6%9C%AC%E7%9A%84%E6%8E%A7%E5%88%B6/"/>
     
   </entry>
   
   <entry>
     <title>[原]Microsoft SQL Server学习（八）--T-SQL</title>
-    <link href="http://yoursite.com/2017/10/08/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%85%AB%EF%BC%89-T-SQL/"/>
-    <id>http://yoursite.com/2017/10/08/原-Microsoft-SQL-Server学习（八）-T-SQL/</id>
+    <link href="https://king2017blog.github.io/2017/10/08/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%85%AB%EF%BC%89-T-SQL/"/>
+    <id>https://king2017blog.github.io/2017/10/08/原-Microsoft-SQL-Server学习（八）-T-SQL/</id>
     <published>2017-10-08T10:21:35.000Z</published>
     <updated>2017-10-19T11:55:31.475Z</updated>
     
@@ -86,21 +86,21 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="SQLServer" scheme="http://yoursite.com/tags/SQLServer/"/>
+      <category term="SQLServer" scheme="https://king2017blog.github.io/tags/SQLServer/"/>
     
-      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>[原]Microsoft SQL Server学习（七）--函数视图</title>
-    <link href="http://yoursite.com/2017/10/08/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%83%EF%BC%89-%E5%87%BD%E6%95%B0%E8%A7%86%E5%9B%BE/"/>
-    <id>http://yoursite.com/2017/10/08/原-Microsoft-SQL-Server学习（七）-函数视图/</id>
+    <link href="https://king2017blog.github.io/2017/10/08/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%83%EF%BC%89-%E5%87%BD%E6%95%B0%E8%A7%86%E5%9B%BE/"/>
+    <id>https://king2017blog.github.io/2017/10/08/原-Microsoft-SQL-Server学习（七）-函数视图/</id>
     <published>2017-10-08T10:10:22.000Z</published>
     <updated>2017-10-19T11:56:40.056Z</updated>
     
@@ -123,23 +123,23 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="SQLServer" scheme="http://yoursite.com/tags/SQLServer/"/>
+      <category term="SQLServer" scheme="https://king2017blog.github.io/tags/SQLServer/"/>
     
-      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
-      <category term="视图" scheme="http://yoursite.com/tags/%E8%A7%86%E5%9B%BE/"/>
+      <category term="视图" scheme="https://king2017blog.github.io/tags/%E8%A7%86%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>[原]Microsoft SQL Server学习（六）--查询语句</title>
-    <link href="http://yoursite.com/2017/10/08/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%85%AD%EF%BC%89-%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://yoursite.com/2017/10/08/原-Microsoft-SQL-Server学习（六）-查询语句/</id>
+    <link href="https://king2017blog.github.io/2017/10/08/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%85%AD%EF%BC%89-%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/"/>
+    <id>https://king2017blog.github.io/2017/10/08/原-Microsoft-SQL-Server学习（六）-查询语句/</id>
     <published>2017-10-08T09:58:03.000Z</published>
     <updated>2017-10-19T11:56:13.454Z</updated>
     
@@ -157,21 +157,21 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="SQLServer" scheme="http://yoursite.com/tags/SQLServer/"/>
+      <category term="SQLServer" scheme="https://king2017blog.github.io/tags/SQLServer/"/>
     
-      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>[原]Microsoft SQL Server学习（五）--操作符聚合函数</title>
-    <link href="http://yoursite.com/2017/10/08/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%94%EF%BC%89-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/"/>
-    <id>http://yoursite.com/2017/10/08/原-Microsoft-SQL-Server学习（五）-操作符聚合函数/</id>
+    <link href="https://king2017blog.github.io/2017/10/08/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%94%EF%BC%89-%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/"/>
+    <id>https://king2017blog.github.io/2017/10/08/原-Microsoft-SQL-Server学习（五）-操作符聚合函数/</id>
     <published>2017-10-08T08:49:40.000Z</published>
     <updated>2017-10-19T11:57:44.043Z</updated>
     
@@ -194,23 +194,23 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="SQLServer" scheme="http://yoursite.com/tags/SQLServer/"/>
+      <category term="SQLServer" scheme="https://king2017blog.github.io/tags/SQLServer/"/>
     
-      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
-      <category term="聚合函数" scheme="http://yoursite.com/tags/%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/"/>
+      <category term="聚合函数" scheme="https://king2017blog.github.io/tags/%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>[原]Microsoft SQL Server学习（四）--约束</title>
-    <link href="http://yoursite.com/2017/10/02/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89-%E7%BA%A6%E6%9D%9F/"/>
-    <id>http://yoursite.com/2017/10/02/原-Microsoft-SQL-Server学习（四）-约束/</id>
+    <link href="https://king2017blog.github.io/2017/10/02/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89-%E7%BA%A6%E6%9D%9F/"/>
+    <id>https://king2017blog.github.io/2017/10/02/原-Microsoft-SQL-Server学习（四）-约束/</id>
     <published>2017-10-02T07:58:57.000Z</published>
     <updated>2017-10-19T11:57:21.243Z</updated>
     
@@ -224,23 +224,23 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="SQLServer" scheme="http://yoursite.com/tags/SQLServer/"/>
+      <category term="SQLServer" scheme="https://king2017blog.github.io/tags/SQLServer/"/>
     
-      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
-      <category term="约束" scheme="http://yoursite.com/tags/%E7%BA%A6%E6%9D%9F/"/>
+      <category term="约束" scheme="https://king2017blog.github.io/tags/%E7%BA%A6%E6%9D%9F/"/>
     
   </entry>
   
   <entry>
     <title>[原]Linux 学习（四）</title>
-    <link href="http://yoursite.com/2017/09/30/%E5%8E%9F-Linux-%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/09/30/原-Linux-学习（四）/</id>
+    <link href="https://king2017blog.github.io/2017/09/30/%E5%8E%9F-Linux-%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>https://king2017blog.github.io/2017/09/30/原-Linux-学习（四）/</id>
     <published>2017-09-30T08:11:03.000Z</published>
     <updated>2017-10-19T11:54:10.883Z</updated>
     
@@ -257,19 +257,19 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+      <category term="Linux" scheme="https://king2017blog.github.io/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+      <category term="Linux" scheme="https://king2017blog.github.io/tags/Linux/"/>
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>[原]Linux 学习（三）</title>
-    <link href="http://yoursite.com/2017/09/30/%E5%8E%9F-Linux-%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/09/30/原-Linux-学习（三）/</id>
+    <link href="https://king2017blog.github.io/2017/09/30/%E5%8E%9F-Linux-%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://king2017blog.github.io/2017/09/30/原-Linux-学习（三）/</id>
     <published>2017-09-30T07:22:42.000Z</published>
     <updated>2017-10-19T11:53:59.797Z</updated>
     
@@ -288,19 +288,19 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+      <category term="Linux" scheme="https://king2017blog.github.io/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+      <category term="Linux" scheme="https://king2017blog.github.io/tags/Linux/"/>
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>[原]Linux 学习（二）</title>
-    <link href="http://yoursite.com/2017/09/30/%E5%8E%9F-Linux-%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/09/30/原-Linux-学习（二）/</id>
+    <link href="https://king2017blog.github.io/2017/09/30/%E5%8E%9F-Linux-%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>https://king2017blog.github.io/2017/09/30/原-Linux-学习（二）/</id>
     <published>2017-09-30T06:54:06.000Z</published>
     <updated>2017-10-19T11:53:27.639Z</updated>
     
@@ -361,19 +361,19 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+      <category term="Linux" scheme="https://king2017blog.github.io/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+      <category term="Linux" scheme="https://king2017blog.github.io/tags/Linux/"/>
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>[原]Microsoft SQL Server学习（三）</title>
-    <link href="http://yoursite.com/2017/09/28/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/09/28/原-Microsoft-SQL-Server学习（三）/</id>
+    <link href="https://king2017blog.github.io/2017/09/28/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>https://king2017blog.github.io/2017/09/28/原-Microsoft-SQL-Server学习（三）/</id>
     <published>2017-09-28T06:34:59.000Z</published>
     <updated>2017-10-19T11:57:00.073Z</updated>
     
@@ -386,21 +386,21 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="SQLServer" scheme="http://yoursite.com/tags/SQLServer/"/>
+      <category term="SQLServer" scheme="https://king2017blog.github.io/tags/SQLServer/"/>
     
-      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>[转]软件测试概念</title>
-    <link href="http://yoursite.com/2017/09/27/%E8%BD%AC-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A6%82%E5%BF%B5/"/>
-    <id>http://yoursite.com/2017/09/27/转-软件测试概念/</id>
+    <link href="https://king2017blog.github.io/2017/09/27/%E8%BD%AC-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A6%82%E5%BF%B5/"/>
+    <id>https://king2017blog.github.io/2017/09/27/转-软件测试概念/</id>
     <published>2017-09-27T09:28:50.000Z</published>
     <updated>2017-10-19T12:04:09.738Z</updated>
     
@@ -419,17 +419,17 @@
     
     </summary>
     
-      <category term="测试经验文" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%96%87/"/>
+      <category term="测试经验文" scheme="https://king2017blog.github.io/categories/%E6%B5%8B%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%96%87/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>[原]接口测试（一）--soapui实践</title>
-    <link href="http://yoursite.com/2017/09/27/%E5%8E%9F-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89-soapui%E5%AE%9E%E8%B7%B5/"/>
-    <id>http://yoursite.com/2017/09/27/原-接口测试（一）-soapui实践/</id>
+    <link href="https://king2017blog.github.io/2017/09/27/%E5%8E%9F-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89-soapui%E5%AE%9E%E8%B7%B5/"/>
+    <id>https://king2017blog.github.io/2017/09/27/原-接口测试（一）-soapui实践/</id>
     <published>2017-09-27T08:43:47.000Z</published>
     <updated>2017-10-19T12:01:26.621Z</updated>
     
@@ -446,21 +446,21 @@ Response进行分析，这就是接口测试。
     
     </summary>
     
-      <category term="接口测试" scheme="http://yoursite.com/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+      <category term="接口测试" scheme="https://king2017blog.github.io/categories/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="接口测试" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
+      <category term="接口测试" scheme="https://king2017blog.github.io/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="SoapUI" scheme="http://yoursite.com/tags/SoapUI/"/>
+      <category term="SoapUI" scheme="https://king2017blog.github.io/tags/SoapUI/"/>
     
   </entry>
   
   <entry>
     <title>[原]Monkey测试总结</title>
-    <link href="http://yoursite.com/2017/09/27/%E5%8E%9F-Monkey%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2017/09/27/原-Monkey测试总结/</id>
+    <link href="https://king2017blog.github.io/2017/09/27/%E5%8E%9F-Monkey%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/"/>
+    <id>https://king2017blog.github.io/2017/09/27/原-Monkey测试总结/</id>
     <published>2017-09-27T08:10:29.000Z</published>
     <updated>2017-10-19T11:59:43.406Z</updated>
     
@@ -473,25 +473,25 @@ Response进行分析，这就是接口测试。
     
     </summary>
     
-      <category term="Monkey测试" scheme="http://yoursite.com/categories/Monkey%E6%B5%8B%E8%AF%95/"/>
+      <category term="Monkey测试" scheme="https://king2017blog.github.io/categories/Monkey%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="Monkey" scheme="http://yoursite.com/tags/Monkey/"/>
+      <category term="Monkey" scheme="https://king2017blog.github.io/tags/Monkey/"/>
     
-      <category term="移动端测试" scheme="http://yoursite.com/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/"/>
+      <category term="移动端测试" scheme="https://king2017blog.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="压力测试" scheme="http://yoursite.com/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/"/>
+      <category term="压力测试" scheme="https://king2017blog.github.io/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="稳定性测试" scheme="http://yoursite.com/tags/%E7%A8%B3%E5%AE%9A%E6%80%A7%E6%B5%8B%E8%AF%95/"/>
+      <category term="稳定性测试" scheme="https://king2017blog.github.io/tags/%E7%A8%B3%E5%AE%9A%E6%80%A7%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>[原]Linux学习（一）--基本概念</title>
-    <link href="http://yoursite.com/2017/09/25/%E5%8E%9F-Linux%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
-    <id>http://yoursite.com/2017/09/25/原-Linux学习（一）-基本概念/</id>
+    <link href="https://king2017blog.github.io/2017/09/25/%E5%8E%9F-Linux%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+    <id>https://king2017blog.github.io/2017/09/25/原-Linux学习（一）-基本概念/</id>
     <published>2017-09-24T16:59:34.000Z</published>
     <updated>2017-10-19T11:54:25.473Z</updated>
     
@@ -506,19 +506,19 @@ Response进行分析，这就是接口测试。
     
     </summary>
     
-      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+      <category term="Linux" scheme="https://king2017blog.github.io/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+      <category term="Linux" scheme="https://king2017blog.github.io/tags/Linux/"/>
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>[原]Microsoft SQL Server学习（二）--数据库的语法</title>
-    <link href="http://yoursite.com/2017/09/21/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%AF%AD%E6%B3%95/"/>
-    <id>http://yoursite.com/2017/09/21/原-Microsoft-SQL-Server学习（二）-数据库的语法/</id>
+    <link href="https://king2017blog.github.io/2017/09/21/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%AF%AD%E6%B3%95/"/>
+    <id>https://king2017blog.github.io/2017/09/21/原-Microsoft-SQL-Server学习（二）-数据库的语法/</id>
     <published>2017-09-21T09:54:41.000Z</published>
     <updated>2017-10-19T11:55:59.781Z</updated>
     
@@ -540,21 +540,21 @@ Response进行分析，这就是接口测试。
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="SQLServer" scheme="http://yoursite.com/tags/SQLServer/"/>
+      <category term="SQLServer" scheme="https://king2017blog.github.io/tags/SQLServer/"/>
     
-      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>[原]Microsoft SQL Server学习（一）--基本概念</title>
-    <link href="http://yoursite.com/2017/09/21/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
-    <id>http://yoursite.com/2017/09/21/原-Microsoft-SQL-Server学习（一）-基本概念/</id>
+    <link href="https://king2017blog.github.io/2017/09/21/%E5%8E%9F-Microsoft-SQL-Server%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+    <id>https://king2017blog.github.io/2017/09/21/原-Microsoft-SQL-Server学习（一）-基本概念/</id>
     <published>2017-09-21T07:14:42.000Z</published>
     <updated>2017-10-19T11:57:54.946Z</updated>
     
@@ -615,21 +615,21 @@ Response进行分析，这就是接口测试。
     
     </summary>
     
-      <category term="数据库" scheme="http://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="SQLServer" scheme="http://yoursite.com/tags/SQLServer/"/>
+      <category term="SQLServer" scheme="https://king2017blog.github.io/tags/SQLServer/"/>
     
-      <category term="数据库" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="https://king2017blog.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>[原]python自动化测试框架（一）</title>
-    <link href="http://yoursite.com/2017/09/21/%E5%8E%9F-python%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/09/21/原-python自动化测试框架（一）/</id>
+    <link href="https://king2017blog.github.io/2017/09/21/%E5%8E%9F-python%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://king2017blog.github.io/2017/09/21/原-python自动化测试框架（一）/</id>
     <published>2017-09-21T06:47:08.000Z</published>
     <updated>2017-10-19T12:00:40.047Z</updated>
     
@@ -662,21 +662,21 @@ Response进行分析，这就是接口测试。
     
     </summary>
     
-      <category term="Python自动化测试" scheme="http://yoursite.com/categories/Python%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
+      <category term="Python自动化测试" scheme="https://king2017blog.github.io/categories/Python%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="https://king2017blog.github.io/tags/Python/"/>
     
-      <category term="接口自动化测试" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
+      <category term="接口自动化测试" scheme="https://king2017blog.github.io/tags/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>[转]Appium Python API 汇总</title>
-    <link href="http://yoursite.com/2017/07/10/%E8%BD%AC-Appium-Python-API-%E6%B1%87%E6%80%BB/"/>
-    <id>http://yoursite.com/2017/07/10/转-Appium-Python-API-汇总/</id>
+    <link href="https://king2017blog.github.io/2017/07/10/%E8%BD%AC-Appium-Python-API-%E6%B1%87%E6%80%BB/"/>
+    <id>https://king2017blog.github.io/2017/07/10/转-Appium-Python-API-汇总/</id>
     <published>2017-07-10T03:56:14.000Z</published>
     <updated>2017-10-19T12:02:03.943Z</updated>
     
@@ -690,21 +690,21 @@ Response进行分析，这就是接口测试。
     
     </summary>
     
-      <category term="Appium" scheme="http://yoursite.com/categories/Appium/"/>
+      <category term="Appium" scheme="https://king2017blog.github.io/categories/Appium/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="移动端测试" scheme="http://yoursite.com/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/"/>
+      <category term="移动端测试" scheme="https://king2017blog.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="Appium" scheme="http://yoursite.com/tags/Appium/"/>
+      <category term="Appium" scheme="https://king2017blog.github.io/tags/Appium/"/>
     
   </entry>
   
   <entry>
     <title>[转]提高软件测试能力的建议</title>
-    <link href="http://yoursite.com/2017/06/30/%E8%BD%AC-%E6%8F%90%E9%AB%98%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%83%BD%E5%8A%9B%E7%9A%84%E5%BB%BA%E8%AE%AE/"/>
-    <id>http://yoursite.com/2017/06/30/转-提高软件测试能力的建议/</id>
+    <link href="https://king2017blog.github.io/2017/06/30/%E8%BD%AC-%E6%8F%90%E9%AB%98%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%83%BD%E5%8A%9B%E7%9A%84%E5%BB%BA%E8%AE%AE/"/>
+    <id>https://king2017blog.github.io/2017/06/30/转-提高软件测试能力的建议/</id>
     <published>2017-06-30T01:52:29.000Z</published>
     <updated>2017-10-19T12:04:39.161Z</updated>
     
@@ -717,19 +717,19 @@ Response进行分析，这就是接口测试。
     
     </summary>
     
-      <category term="测试经验文" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%96%87/"/>
+      <category term="测试经验文" scheme="https://king2017blog.github.io/categories/%E6%B5%8B%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%96%87/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="测试能力提升" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95%E8%83%BD%E5%8A%9B%E6%8F%90%E5%8D%87/"/>
+      <category term="测试能力提升" scheme="https://king2017blog.github.io/tags/%E6%B5%8B%E8%AF%95%E8%83%BD%E5%8A%9B%E6%8F%90%E5%8D%87/"/>
     
   </entry>
   
   <entry>
     <title>[转]软件测试常见风险分析</title>
-    <link href="http://yoursite.com/2017/06/27/%E8%BD%AC-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/"/>
-    <id>http://yoursite.com/2017/06/27/转-软件测试常见风险分析/</id>
+    <link href="https://king2017blog.github.io/2017/06/27/%E8%BD%AC-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/"/>
+    <id>https://king2017blog.github.io/2017/06/27/转-软件测试常见风险分析/</id>
     <published>2017-06-27T07:27:48.000Z</published>
     <updated>2017-10-19T12:03:37.182Z</updated>
     
@@ -747,12 +747,12 @@ Response进行分析，这就是接口测试。
     
     </summary>
     
-      <category term="测试经验文" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%96%87/"/>
+      <category term="测试经验文" scheme="https://king2017blog.github.io/categories/%E6%B5%8B%E8%AF%95%E7%BB%8F%E9%AA%8C%E6%96%87/"/>
     
     
-      <category term="软件测试" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
+      <category term="软件测试" scheme="https://king2017blog.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="风险分析" scheme="http://yoursite.com/tags/%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/"/>
+      <category term="风险分析" scheme="https://king2017blog.github.io/tags/%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
